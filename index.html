@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Easy School Fees Planner: plan school fees and your next home</title>
+<meta name="description" content="See what school will cost year by year, how you will fund it, and when you can afford your next home. Early access for families.">
+<meta property="og:title" content="Easy School Fees Planner">
+<meta property="og:description" content="Plan school fees year by year, and see how they affect when you can buy your next home.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.easyschoolfeesplanner.com.au/">
+<link rel="canonical" href="https://www.easyschoolfeesplanner.com.au/">
+<meta name="theme-color" content="#0F5F5C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F5F5C'/%3E%3Crect x='12' y='34' width='10' height='18' rx='2' fill='%23fff'/%3E%3Crect x='27' y='24' width='10' height='28' rx='2' fill='%23fff'/%3E%3Crect x='42' y='12' width='10' height='40' rx='2' fill='%23F4A261'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#14211F; --muted:#51615E; --line:#DCE6E3; --bg:#FAFCFB; --card:#FFFFFF;
+    --brand:#0F5F5C; --brand-dark:#0A4644; --brand-soft:#E3F1EF; --accent:#F4A261; --accent-dark:#B45F13;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(250,252,251,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand svg{width:34px;height:34px;flex:none}
+  .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;align-items:center}
+  .nav li a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+  .nav li a:hover{color:var(--brand)}
+  .btn{display:inline-block;background:var(--brand);color:#fff!important;padding:13px 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:background .15s}
+  .btn:hover{background:var(--brand-dark)}
+  .btn.ghost{background:transparent;color:var(--brand)!important;border:1.5px solid var(--brand)}
+  .btn.ghost:hover{background:var(--brand-soft)}
+  .btn.small{padding:9px 18px;font-size:14px}
+  .btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  .hero{padding:72px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .pill{display:inline-block;background:var(--brand-soft);color:var(--brand-dark);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  h1{font-size:clamp(34px,4.6vw,54px);line-height:1.08;letter-spacing:-.025em;margin:0 0 20px;font-weight:750}
+  h1 em{font-style:normal;color:var(--brand)}
+  .lead{font-size:20px;color:var(--muted);margin:0 0 30px;max-width:34em}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .fine{font-size:14px;color:var(--muted);margin-top:16px}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 26px 20px;box-shadow:0 18px 40px -22px rgba(15,95,92,.35)}
+  .panel h3{margin:0 0 4px;font-size:16px}
+  .panel .sub{font-size:13px;color:var(--muted);margin:0 0 14px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .caption{font-size:12px;color:var(--muted);margin:12px 0 0;border-top:1px solid var(--line);padding-top:10px}
+
+  section{padding:64px 0}
+  section.alt{background:#F1F7F6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 10px}
+  h2{font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;font-weight:720}
+  .intro{font-size:18px;color:var(--muted);max-width:40em;margin:0 0 38px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card h3{margin:0 0 8px;font-size:19px;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--muted);font-size:16px}
+  .num{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:14px}
+  .icon{width:42px;height:42px;border-radius:12px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .icon svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .who .card{border-top:4px solid var(--accent)}
+
+  .privacy{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .ticks{list-style:none;padding:0;margin:0}
+  .ticks li{display:flex;gap:12px;margin-bottom:16px;font-size:17px}
+  .ticks svg{flex:none;width:22px;height:22px;margin-top:2px;stroke:var(--brand);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+  .join{background:var(--brand);color:#fff;border-radius:26px;padding:52px 44px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+  .join h2{color:#fff;margin-bottom:10px}
+  .join p{margin:0;color:#D5ECEA;font-size:18px}
+  .join .btn{background:var(--accent);color:#2A1A06!important}
+  .join .btn:hover{background:#F8B67E}
+
+  footer{padding:44px 0 56px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  footer p{margin:0 0 10px;max-width:62em}
+
+  @media (max-width:900px){
+    .hero-grid,.privacy,.join{grid-template-columns:1fr}
+    .nav ul li.hide-sm{display:none}
+    .hero{padding-top:44px}
+    .join{padding:38px 26px}
+  }
+  @media (max-width:700px){
+    .grid3,.who,.grid2{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Easy School Fees Planner home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0F5F5C"/><rect x="12" y="34" width="10" height="18" rx="2" fill="#fff"/><rect x="27" y="24" width="10" height="28" rx="2" fill="#fff"/><rect x="42" y="12" width="10" height="40" rx="2" fill="#F4A261"/></svg>
+      Easy School Fees Planner
+    </a>
+    <ul>
+      <li class="hide-sm"><a href="#how">How it works</a></li>
+      <li class="hide-sm"><a href="#home">Your next home</a></li>
+      <li class="hide-sm"><a href="#privacy">Privacy</a></li>
+      <li><a class="btn small" href="#join">Request early access</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">Early access for families</span>
+      <h1>Know what school will cost, and what it means for your <em>next home</em>.</h1>
+      <p class="lead">See school fees for each child year by year, how you will pay for them, and when you can comfortably afford to buy or move. Simple enough for a first plan in minutes.</p>
+      <div class="cta">
+        <a class="btn" href="#join">Request early access</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="fine">Built for parents who own, rent, or plan to buy. No children's names needed.</p>
+    </div>
+
+    <div class="panel" role="img" aria-label="Example of a year by year school fees chart, with fees for two children and the part paid from income and the part paid from savings. Illustration only.">
+      <h3>Fees by year</h3>
+      <p class="sub">Two children, from income and savings</p>
+      <svg viewBox="0 0 440 250" width="100%" aria-hidden="true">
+        <g stroke="#DCE6E3" stroke-width="1">
+          <line x1="30" y1="30" x2="430" y2="30"/><line x1="30" y1="80" x2="430" y2="80"/><line x1="30" y1="130" x2="430" y2="130"/><line x1="30" y1="180" x2="430" y2="180"/>
+        </g>
+        <line x1="30" y1="210" x2="430" y2="210" stroke="#9FB3AF" stroke-width="1.5"/>
+        <!-- bars: income (teal), savings (amber), gap (hatched outline) -->
+        <g>
+          <rect x="44"  y="150" width="30" height="60" rx="3" fill="#0F5F5C"/>
+          <rect x="44"  y="138" width="30" height="12" rx="3" fill="#F4A261"/>
+          <rect x="90"  y="140" width="30" height="70" rx="3" fill="#0F5F5C"/>
+          <rect x="90"  y="124" width="30" height="16" rx="3" fill="#F4A261"/>
+          <rect x="136" y="132" width="30" height="78" rx="3" fill="#0F5F5C"/>
+          <rect x="136" y="112" width="30" height="20" rx="3" fill="#F4A261"/>
+          <rect x="182" y="110" width="30" height="100" rx="3" fill="#0F5F5C"/>
+          <rect x="182" y="82"  width="30" height="28" rx="3" fill="#F4A261"/>
+          <rect x="228" y="90"  width="30" height="120" rx="3" fill="#0F5F5C"/>
+          <rect x="228" y="56"  width="30" height="34" rx="3" fill="#F4A261"/>
+          <rect x="274" y="84"  width="30" height="126" rx="3" fill="#0F5F5C"/>
+          <rect x="274" y="46"  width="30" height="38" rx="3" fill="#F4A261"/>
+          <rect x="320" y="78"  width="30" height="132" rx="3" fill="#0F5F5C"/>
+          <rect x="320" y="36"  width="30" height="42" rx="3" fill="#F4A261"/>
+          <rect x="366" y="100" width="30" height="110" rx="3" fill="#0F5F5C"/>
+          <rect x="366" y="70"  width="30" height="30" rx="3" fill="#F4A261"/>
+        </g>
+        <g font-size="11" fill="#51615E" text-anchor="middle">
+          <text x="59" y="228">Yr 1</text><text x="105" y="228">Yr 2</text><text x="151" y="228">Yr 3</text><text x="197" y="228">Yr 4</text>
+          <text x="243" y="228">Yr 5</text><text x="289" y="228">Yr 6</text><text x="335" y="228">Yr 7</text><text x="381" y="228">Yr 8</text>
+        </g>
+      </svg>
+      <div class="legend"><span><i style="background:#0F5F5C"></i>Paid from income</span><span><i style="background:#F4A261"></i>Paid from savings</span></div>
+      <p class="caption">Illustration only, not real figures. Your plan uses your own fees and your own numbers.</p>
+    </div>
+  </div>
+</div>
+
+<section class="alt" id="who">
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2>Whether you own, rent, or plan to buy</h2>
+    <p class="intro">School fees rise every year and sit alongside a mortgage or rent. The planner shows the two together, so you can see the trade-offs before you commit.</p>
+    <div class="who">
+      <div class="card"><h3>Owners with a mortgage</h3><p>See how fees and repayments fit together, and when upgrading or moving becomes realistic.</p></div>
+      <div class="card"><h3>Renters</h3><p>See how much you can save towards a deposit while paying for school, and how long that takes.</p></div>
+      <div class="card"><h3>Future first-home buyers</h3><p>Work out when a first home is within reach once school costs are in the picture.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps to a clear picture</h2>
+    <p class="intro">Enter what you know. The planner does the year-by-year arithmetic and shows where money is tight.</p>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>Tell us about your family</h3><p>Add your incomes and how many children you have, and the year each was born. That is all it needs about them.</p></div>
+      <div class="card"><div class="num">2</div><h3>Plan the schools</h3><p>Enter each school's fees by year level, plus extras like uniforms, camps and devices. Compare staying put with changing schools.</p></div>
+      <div class="card"><div class="num">3</div><h3>See the whole picture</h3><p>View fees month by month and year by year, how they are funded, and what it means for your next home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="features">
+  <div class="wrap">
+    <p class="eyebrow">What you can do</p>
+    <h2>Everything on one screen, in plain language</h2>
+    <p class="intro">Built to answer the questions parents actually ask.</p>
+    <div class="grid2">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Fees for every child, every year</h3><p>Tuition, levies and extras by year level, with fee increases built in. See the total for each year and for the whole of school.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M17 7.5C17 5.6 14.8 4.5 12 4.5S7 5.6 7 7.5s2.2 3 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg></div><h3>How you will pay for it</h3><p>Fees come from income first, then from savings and the other sources you choose. You see the months and years that fall short.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></div><h3>When to buy your next home</h3><p>See how income growth, school fees, a scholarship if you have one, and your other costs affect the mortgage you could comfortably carry, year by year.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4zM7 9.5V14c0 1.4 2.2 3 5 3s5-1.6 5-3V9.5"/></svg></div><h3>What would it take?</h3><p>Try different schools, start dates and monthly savings, and compare the outcomes side by side. Test a rate rise, a fee jump or a change in income.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="home">
+  <div class="wrap">
+    <p class="eyebrow">Your next home</p>
+    <h2>School fees change what you can borrow and when</h2>
+    <p class="intro">Most home planning ignores a decade of fees. This planner puts them side by side, so the question "when can we buy?" is answered with your real commitments in view.</p>
+    <div class="grid3">
+      <div class="card"><h3>Year by year</h3><p>A simple grid of purchase year against price shows where it is comfortable, tight, or out of reach.</p></div>
+      <div class="card"><h3>Your choices matter</h3><p>See how staying at the current school, or moving at Year 7, changes the earliest year you could buy.</p></div>
+      <div class="card"><h3>Ranges, not promises</h3><p>Fees, rates and prices are uncertain over ten years, so the results show a range you can plan around.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="privacy">
+  <div class="wrap privacy">
+    <div>
+      <p class="eyebrow">Privacy</p>
+      <h2>Built to keep your children's details out of it</h2>
+      <p class="intro" style="margin-bottom:0">School planning shouldn't need personal details about children, so the planner is being built not to ask for them.</p>
+    </div>
+    <ul class="ticks">
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>No children's names.</strong> Children will appear as Child 1, Child 2 and so on, with a birth year only.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Your plan is yours.</strong> Each family will have its own private account. Plans are never shared between families.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Saved plans are locked.</strong> Saved plans are designed to be encrypted in your browser before they are stored, so no one else can read them.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="join">
+      <div>
+        <h2>Be among the first families to try it</h2>
+        <p>We are opening access to a small group of families while the planner is finished. Tell us you're interested and we'll be in touch.</p>
+      </div>
+      <div style="text-align:right">
+        <a class="btn" href="mailto:info@easyschoolfeesplanner.com.au?subject=Early%20access%20to%20Easy%20School%20Fees%20Planner">Request early access</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Easy School Fees Planner</strong> · www.easyschoolfeesplanner.com.au</p>
+    <p>General information only. This planner gives estimates from the information you enter and simple assumptions. It is not financial, tax, credit or legal advice, and it is not a lender's assessment of what you can borrow. Fees, interest rates, property prices and tax rules change. Check your own circumstances with a licensed professional before making decisions.</p>
+    <p>Illustrations on this page are examples, not real data. The product is in early development and features may change.</p>
+    <p>© <span id="yr">2026</span> · ABN 30 408 209 039 · All rights reserved.</p>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
