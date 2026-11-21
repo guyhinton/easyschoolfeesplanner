@@ -79,7 +79,7 @@
 </main>
 <script>
 (function(){
-  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
+  var WORKER='https://sfpworker.guy-h-hinton.workers.dev';   // set to the deployed Worker address (same value as on the landing page)
   var $=function(i){return document.getElementById(i)}, VIEWS=['v-loading','v-signin','v-forgot','v-reset','v-done'];
   function view(id){VIEWS.forEach(function(v){$(v).hidden=(v!==id)}); var f=$(id).querySelector('input'); if(f&&id!=='v-loading')setTimeout(function(){var a=document.activeElement;if(a===document.body||a.tagName==='BUTTON'){try{f.focus()}catch(e){}}},30)}   // never takes focus from a box the person has already clicked into
   function say(id,text,cls){var e=$(id);e.textContent=text||'';e.className='msg '+(cls||'err');e.hidden=!text}
