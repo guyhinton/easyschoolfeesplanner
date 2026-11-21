@@ -56,7 +56,7 @@
   section{padding:64px 0}
   section.alt{background:#F1F7F6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .eyebrow{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 10px}
-  h2{font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;font-weight:720}
+  h2{text-wrap:balance;font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;font-weight:720}
   .intro{font-size:18px;color:var(--muted);max-width:40em;margin:0 0 38px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
@@ -74,7 +74,7 @@
   .ticks li{display:flex;gap:12px;margin-bottom:16px;font-size:17px}
   .ticks svg{flex:none;width:22px;height:22px;margin-top:2px;stroke:var(--brand);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
-  .join{background:var(--brand);color:#fff;border-radius:26px;padding:52px 44px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+  .join{background:var(--brand);color:#fff;border-radius:26px;padding:52px 44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}
   .join h2{color:#fff;margin-bottom:10px}
   .join p{margin:0;color:#D5ECEA;font-size:18px}
   .join .btn{background:var(--accent);color:#2A1A06!important}
@@ -115,6 +115,11 @@
   .dlg .btn[disabled]{opacity:.55;cursor:not-allowed}
   .pwrow{position:relative}.pwrow button{position:absolute;right:6px;top:6px;border:0;background:transparent;color:var(--brand);font:inherit;font-weight:600;font-size:14px;padding:6px 8px;cursor:pointer}
   .cardnote{background:var(--brand-soft);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:14px}
+  .soon{display:flex;gap:18px;align-items:flex-start;margin-top:22px;background:#fff;border:1.5px dashed var(--brand);border-radius:var(--radius);padding:22px 26px}
+  .soon h3{margin:0 0 6px;font-size:19px;letter-spacing:-.01em}
+  .soon p{margin:0;color:var(--muted);font-size:16px;max-width:56em}
+  .badge{flex:none;background:var(--accent);color:#2A1A06;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:6px 12px;margin-top:2px}
+  @media (max-width:700px){.soon{flex-direction:column;gap:10px;padding:20px}}
 </style>
 </head>
 <body>
@@ -128,7 +133,7 @@
     <ul>
       <li class="hide-sm"><a href="#how">How it works</a></li>
       <li class="hide-sm"><a href="#home">Your next home</a></li>
-      <li class="hide-sm"><a href="#privacy">Privacy</a></li>
+      <li class="hide-sm"><a href="#privacy">Privacy and security</a></li>
       <li class="hide-sm"><a href="/app/">Sign in</a></li>
       <li><a class="btn small" href="#join" data-open-signup>Request early access</a></li>
     </ul>
@@ -146,7 +151,7 @@
         <a class="btn" href="#join" data-open-signup>Request early access</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
-      <p class="fine">Built for parents who own, rent, or plan to buy. No children's names needed.</p>
+      <p class="fine">Built for parents who own, rent, or plan to buy. Private by design: your figures stay under your control.</p>
     </div>
 
     <div class="panel" role="img" aria-label="Example of a year by year school fees chart, with fees for two children and the part paid from income and the part paid from savings. Illustration only.">
@@ -206,7 +211,7 @@
     <h2>Three steps to a clear picture</h2>
     <p class="intro">Enter what you know. The planner does the year-by-year arithmetic and shows where money is tight.</p>
     <div class="grid3">
-      <div class="card"><div class="num">1</div><h3>Tell us about your family</h3><p>Add your incomes and how many children you have, and the year each was born. That is all it needs about them.</p></div>
+      <div class="card"><div class="num">1</div><h3>Tell us about your family</h3><p>Add your incomes, how many children you have, and the year each was born. A name for each child is optional.</p></div>
       <div class="card"><div class="num">2</div><h3>Plan the schools</h3><p>Enter each school's fees by year level, plus extras like uniforms, camps and devices. Compare staying put with changing schools.</p></div>
       <div class="card"><div class="num">3</div><h3>See the whole picture</h3><p>View fees month by month and year by year, how they are funded, and what it means for your next home.</p></div>
     </div>
@@ -241,17 +246,25 @@
 </section>
 
 <section class="alt" id="privacy">
-  <div class="wrap privacy">
-    <div>
-      <p class="eyebrow">Privacy</p>
-      <h2>Built to keep your children's details out of it</h2>
-      <p class="intro" style="margin-bottom:0">School planning shouldn't need personal details about children, so the planner is being built not to ask for them.</p>
+  <div class="wrap">
+    <p class="eyebrow">Privacy and security</p>
+    <h2>Your family's information stays yours</h2>
+    <p class="intro">A school fees plan says a lot about a household. The planner is built so that your figures stay under your control, and the few things we do hold are protected.</p>
+    <div class="grid3">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div><h3>Your figures stay on your device</h3><p>Your plan is kept in your own browser. It is not sent to our servers, so we cannot see your incomes, fees or savings.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><h3>Encrypted connection</h3><p>The website and sign-in are served over HTTPS, so what you type is encrypted on its way to us.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.6-3.3 7.7-8 9-4.7-1.3-8-4.4-8-9V6l8-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div><h3>Passwords kept safe</h3><p>Your password is stored only as a salted hash, never in readable form, so even we cannot see it.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10.5h18M7 15h3"/></svg></div><h3>Cards handled by Stripe</h3><p>The card step is run by Stripe, a leading payments provider. We never see or store your card number, and the trial costs $0.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></div><h3>Only what we need</h3><p>Our licence service holds just your name, email address and licence dates. Nothing about your plan or your children.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div><h3>Names are your choice</h3><p>Add a child's name if you like, or keep Child 1 and Child 2. It is entirely up to you, and names stay with your plan on your device.</p></div>
     </div>
-    <ul class="ticks">
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>No children's names.</strong> Children will appear as Child 1, Child 2 and so on, with a birth year only.</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Your plan is yours.</strong> Each family will have its own private account. Plans are never shared between families.</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><strong>Saved plans are locked.</strong> Saved plans are designed to be encrypted in your browser before they are stored, so no one else can read them.</span></li>
-    </ul>
+    <div class="soon">
+      <span class="badge">Coming soon</span>
+      <div>
+        <h3>Encrypted cloud saving</h3>
+        <p>Save your plan online and open it on any device. Your plan will be encrypted in your browser before it leaves your device, with a key only you hold, so it is stored as scrambled data that nobody else can read. This is being built now; until it arrives, plans are kept on the device you use.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -320,7 +333,7 @@
 </dialog>
 <script>
 (function(){
-  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev';   // set to the deployed Worker address (see set-up notes)
+  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
   var TRIAL_TERMS_VERSION='2026-11-21';                    // must equal TRIAL_TERMS_VERSION in the Worker
   var $=function(i){return document.getElementById(i)}, dlg=$('signup'), form=$('su-form');
   function show(id,msg){var e=$(id); e.textContent=msg||''; e.hidden=!msg}
