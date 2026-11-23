@@ -415,8 +415,8 @@
     <label for="su-email">Email address</label>
     <input id="su-email" type="email" name="email" autocomplete="email" maxlength="200" required>
     <div id="su-dup" class="warn" hidden></div>
-    <label for="su-pass">Choose a password (at least 8 characters)</label>
-    <div class="pwrow"><input id="su-pass" type="password" name="password" autocomplete="new-password" minlength="8" maxlength="200" required><button type="button" id="su-show" aria-label="Show password">Show</button></div>
+    <label for="su-pass">Choose a password (at least 10 characters)</label>
+    <div class="pwrow"><input id="su-pass" type="password" name="password" autocomplete="new-password" minlength="10" maxlength="200" required><button type="button" id="su-show" aria-label="Show password">Show</button></div>
     <p class="hint" id="su-hint" data-trial="You will use this email and password to sign in once your request is approved." data-paid="You will use this email and password to sign in. If you already have a trial, use the same email and the password you chose then.">You will use this email and password to sign in once your request is approved.</p>
     <div id="su-trial-terms">
     <label for="su-terms-box">Trial terms (version 2026-11-21)</label>
@@ -496,7 +496,7 @@
     var name=$('su-name').value.trim(), email=$('su-email').value.trim(), pass=$('su-pass').value;
     if(!name) return show('su-err','Please enter your name.');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return show('su-err','Please enter a valid email address.');
-    if(pass.length<8) return show('su-err','Please choose a password of at least 8 characters.');
+    if(pass.length<10) return show('su-err','Please choose a password of at least 10 characters.');
     var paid=plan!=='trial';
     if(!$('su-agree').checked) return show('su-err','Please tick the box to accept the '+(paid?'subscription':'trial')+' terms.');
     var go=$('su-go'); go.disabled=true; go.textContent='One moment...';

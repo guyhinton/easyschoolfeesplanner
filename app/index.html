@@ -48,6 +48,7 @@
       <button class="btn" id="si-go" type="submit">Sign in</button>
     </form>
     <p class="foot"><button class="link" id="to-forgot" type="button">Forgot your password?</button></p>
+    <p class="foot"><button class="link" id="to-code" type="button">Email me a sign-in code instead</button></p>
     <p class="foot">No licence yet? <a href="/#join">Request early access</a></p>
   </section>
 
@@ -65,12 +66,22 @@
   <section class="card" id="v-reset" hidden>
     <h1>Choose a new password</h1>
     <form id="f-reset" novalidate>
-      <label for="rs-pass">New password (at least 8 characters)</label><input id="rs-pass" type="password" autocomplete="new-password" maxlength="200">
+      <label for="rs-pass">New password (at least 10 characters)</label><input id="rs-pass" type="password" autocomplete="new-password" maxlength="200">
       <div id="rs-msg" class="msg" role="alert" hidden></div>
       <button class="btn" id="rs-go" type="submit">Save new password</button>
     </form>
   </section>
 
+  <section class="card" id="v-code" hidden>
+    <h1>Enter your sign-in code</h1>
+    <p class="muted" id="cd-intro">We have emailed a 6-digit code. It works for 10 minutes.</p>
+    <form id="f-code" novalidate>
+      <label for="cd-code">6-digit code</label><input id="cd-code" inputmode="numeric" autocomplete="one-time-code" maxlength="7" pattern="[0-9]*">
+      <div id="cd-msg" class="msg" role="status" hidden></div>
+      <button class="btn" id="cd-go" type="submit">Sign in</button>
+    </form>
+    <p class="foot"><button class="link" id="cd-again" type="button">Send a new code</button> &middot; <button class="link" id="cd-back" type="button">Back to sign in</button></p>
+  </section>
   <section class="card" id="v-plans" hidden>
     <h1 id="pl-title">Your trial has ended</h1>
     <p class="muted" id="pl-body">Thank you for trying Easy School Fees Planner. To carry on, choose a plan. Your plan starts straight away, and you can cancel at any time.</p>
@@ -89,7 +100,7 @@
 <script>
 (function(){
   var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
-  var $=function(i){return document.getElementById(i)}, VIEWS=['v-loading','v-signin','v-forgot','v-reset','v-plans','v-done'];
+  var $=function(i){return document.getElementById(i)}, VIEWS=['v-loading','v-signin','v-forgot','v-reset','v-code','v-plans','v-done'];
   function view(id){VIEWS.forEach(function(v){$(v).hidden=(v!==id)}); var f=$(id).querySelector('input'); if(f&&id!=='v-loading')setTimeout(function(){var a=document.activeElement;if(a===document.body||a.tagName==='BUTTON'){try{f.focus()}catch(e){}}},30)}   // never takes focus from a box the person has already clicked into
   function say(id,text,cls){var e=$(id);e.textContent=text||'';e.className='msg '+(cls||'err');e.hidden=!text}
   function api(path,opt){return fetch(WORKER+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){j._status=r.status;return j})})}
@@ -117,6 +128,14 @@
   $('si-show').addEventListener('click',function(){var p=$('si-pass'),s=p.type==='password';p.type=s?'text':'password';this.textContent=s?'Hide':'Show'});
   $('to-forgot').addEventListener('click',function(){$('fg-email').value=$('si-email').value;say('fg-msg','');view('v-forgot')});
   $('fg-back').addEventListener('click',function(){view('v-signin')});
+  var codeEmail='';
+  function sendCode(){ var b=$('cd-again'); b.disabled=true; say('cd-msg',''); return post('/request-signin-code',{email:codeEmail}).then(function(j){ b.disabled=false; say('cd-msg',(j&&j.message)||'If that email has an account, we have sent a code.','ok') }).catch(function(){ b.disabled=false; say('cd-msg','We could not reach the service. Please try again.') }) }
+  $('to-code').addEventListener('click',function(){ var e=$('si-email').value.trim(); if(!e||e.indexOf('@')<1) return say('si-msg','Please type your email address first, then ask for a code.'); say('si-msg',''); codeEmail=e; $('cd-code').value=''; view('v-code'); sendCode(); $('cd-code').focus() });
+  $('cd-again').addEventListener('click',sendCode);
+  $('cd-back').addEventListener('click',function(){say('si-msg','');view('v-signin')});
+  $('f-code').addEventListener('submit',function(ev){ ev.preventDefault(); var code=$('cd-code').value.replace(/\s+/g,''); if(!/^\d{6}$/.test(code)) return say('cd-msg','Please type the 6 digits from the email.');
+    var b=$('cd-go'); b.disabled=true; b.textContent='Checking...';
+    post('/signin-code',{email:codeEmail,code:code}).then(function(j){ b.disabled=false; b.textContent='Sign in'; if(j&&j.valid===false&&!j.expired&&!j.pending&&!j.declined) return say('cd-msg',j.error||'That code is not right.'); handleSignInAnswer(j) }).catch(function(){ b.disabled=false; b.textContent='Sign in'; say('cd-msg','We could not reach the service. Please try again.') }) });
   $('dn-back').addEventListener('click',function(){say('si-msg','');view('v-signin')});
   $('pl-back').addEventListener('click',function(){say('si-msg','');view('v-signin')});
   fetch(WORKER+'/plans').then(function(r){return r.json()}).then(function(j){ if(!j||!j.ok)return; var m=function(c){return 'A$'+(c%100===0?(c/100):(c/100).toFixed(2))}, f=function(sel,t){[].forEach.call(document.querySelectorAll(sel),function(e){e.textContent=t})}; f('[data-price=monthly]',m(j.monthly.cents)); f('[data-price=annual]',m(j.annual.cents)); f('[data-saving]',String(j.annual.savingPct)) }).catch(function(){});
@@ -137,7 +156,7 @@
   });
   var resetToken=null;
   $('f-reset').addEventListener('submit',function(ev){
-    ev.preventDefault(); var pass=$('rs-pass').value; if(pass.length<8) return say('rs-msg','Please choose a password of at least 8 characters.');
+    ev.preventDefault(); var pass=$('rs-pass').value; if(pass.length<10) return say('rs-msg','Please choose a password of at least 10 characters.');
     var b=$('rs-go'); b.disabled=true;
     post('/reset-password',{token:resetToken,password:pass}).then(function(j){
       b.disabled=false;
