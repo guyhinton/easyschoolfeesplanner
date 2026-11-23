@@ -130,6 +130,15 @@
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);margin-top:26px;align-items:stretch}
+  .plan{display:flex;flex-direction:column}.plan h3{margin:0 0 4px}.plan .price{font-size:34px;font-weight:800;color:var(--brand);margin:6px 0 0}.plan .price small{font-size:16px;font-weight:600;color:var(--muted)}
+  .plan .was{margin:2px 0 10px;color:var(--muted);font-size:15px}.plan ul{margin:8px 0 18px;padding-left:20px;flex:1}.plan li{margin:0 0 5px}
+  .plan.best{border:2px solid var(--brand);position:relative}.plan .tag{position:absolute;top:-13px;right:18px;background:var(--accent);color:#2A1A06;font-weight:700;font-size:13px;padding:4px 12px;border-radius:999px}
+  .plansnote{margin:18px 0 0;color:var(--muted);font-size:14.5px}
+  .planpick{border:0;margin:12px 0 0;padding:0}.planpick legend{font-weight:600;font-size:14px;padding:0;margin-bottom:6px}
+  .planpick label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #B9CBC7;border-radius:12px;padding:10px 12px;margin:0 0 8px;font-weight:500;font-size:15px;cursor:pointer}
+  .planpick input{width:20px;height:20px;margin-top:2px;flex:none}.planpick label.on{border-color:var(--brand);background:var(--brand-soft)}.planpick small{display:block;color:var(--muted);font-size:13px;margin-top:2px;font-weight:400}
+  @media (max-width:900px){.plans{grid-template-columns:1fr}}
   .signin-note{margin:14px 0 0!important;font-size:15px!important}
   .signin-note a{color:#fff}
   dialog#signup,dialog#devicedlg{border:0;border-radius:20px;padding:0;max-width:560px;width:calc(100% - 28px);box-shadow:0 24px 70px rgba(6,42,41,.35);color:var(--ink)}
@@ -172,7 +181,7 @@
     </ul>
   </div>
   <nav class="pillrow" aria-label="Sections on this page"><div class="wide">
-    <a href="#video">Watch the video</a><a href="#commitment">The commitment</a><a href="#how">How it works</a><a href="#paying">How fees are funded</a><a href="#features">What you can do</a><a href="#privacy">Privacy and security</a><a href="#join">Get started</a>
+    <a href="#video">Watch the video</a><a href="#commitment">The commitment</a><a href="#how">How it works</a><a href="#paying">How fees are funded</a><a href="#features">What you can do</a><a href="#plans">Pricing</a><a href="#privacy">Privacy and security</a><a href="#join">Get started</a>
   </div></nav>
 </header>
 
@@ -328,12 +337,31 @@
   </div>
 </section>
 
+<section class="alt" id="plans">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Simple plans for parents</h2>
+    <p class="intro">Every plan includes everything: all the planning screens, the Planner Assistant, school fee look-ups, cloud saving and printing. Start with a free trial, then choose monthly or annual.</p>
+    <div class="plans">
+      <div class="card plan" data-testid="plan-trial"><h3>Free trial</h3><p class="price">$0 <small>for <span data-trialdays>7</span> days</small></p><p class="was">No payment. We approve each trial by email.</p>
+        <ul><li>Everything in the planner</li><li>Enter a card to confirm your details, nothing is charged</li><li>Access ends when the trial does</li></ul>
+        <a class="btn ghost" href="#join" data-open-signup data-plan="trial">Start free trial</a></div>
+      <div class="card plan" data-testid="plan-monthly"><h3>Monthly</h3><p class="price"><span data-price="monthly">A$14.99</span> <small>a month</small></p><p class="was">Cancel any time.</p>
+        <ul><li>Everything in the planner</li><li>Pay month by month</li><li>Keep access to the end of the month you have paid for</li></ul>
+        <a class="btn" href="#join" data-open-signup data-plan="monthly">Subscribe monthly</a></div>
+      <div class="card plan best" data-testid="plan-annual"><span class="tag">Best value: save <span data-saving>28</span>%</span><h3>Annual</h3><p class="price"><span data-price="annual">A$129</span> <small>a year</small></p><p class="was">About <span data-permonth>A$10.75</span> a month. Cancel any time.</p>
+        <ul><li>Everything in the planner</li><li>One payment a year</li><li>Keep access to the end of the year you have paid for</li></ul>
+        <a class="btn" href="#join" data-open-signup data-plan="annual">Subscribe annually</a></div>
+    </div>
+    <p class="plansnote">Prices are in Australian dollars. The Planner Assistant and school fee look-ups have fair monthly limits so the service stays sustainable. Your plan renews automatically until you cancel.</p>
+  </div>
+</section>
 <section id="join">
   <div class="wrap">
     <div class="join">
       <div>
         <h2>Plan wisely to give your children the best head start and the education you know they deserve.</h2>
-        <p>We are opening access to a small group of people while the planner is finished. Sign up, confirm your details with a card (<strong>$0 is charged</strong>), and we will approve your trial by email.</p>
+        <p>Start with a free trial: confirm your details with a card (<strong>$0 is charged</strong>) and we will approve it by email. Or choose a monthly or annual plan and start straight away.</p>
       </div>
       <div style="text-align:right">
         <a class="btn" href="#join" data-open-signup>Sign up</a>
@@ -376,7 +404,12 @@
 <dialog id="signup" aria-labelledby="su-title">
   <form class="dlg" id="su-form" novalidate autocomplete="on">
     <h2 id="su-title">Sign up</h2>
-    <p class="sub">Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email.</p>
+    <fieldset class="planpick" id="su-plans"><legend>Choose how to start</legend>
+      <label data-p="trial"><input type="radio" name="plan" value="trial" checked><span><b>Free trial</b> for <span data-trialdays>7</span> days<small>No payment. We approve each trial by email.</small></span></label>
+      <label data-p="monthly"><input type="radio" name="plan" value="monthly"><span><b>Monthly</b> <span data-price="monthly">A$14.99</span> a month<small>Cancel any time.</small></span></label>
+      <label data-p="annual"><input type="radio" name="plan" value="annual"><span><b>Annual</b> <span data-price="annual">A$129</span> a year<small>Save <span data-saving>28</span>%. Cancel any time.</small></span></label>
+    </fieldset>
+    <p class="sub" id="su-sub" data-trial="Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email." data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email.</p>
     <label for="su-name">Your name</label>
     <input id="su-name" type="text" name="name" autocomplete="name" maxlength="100" required>
     <label for="su-email">Email address</label>
@@ -384,7 +417,8 @@
     <div id="su-dup" class="warn" hidden></div>
     <label for="su-pass">Choose a password (at least 8 characters)</label>
     <div class="pwrow"><input id="su-pass" type="password" name="password" autocomplete="new-password" minlength="8" maxlength="200" required><button type="button" id="su-show" aria-label="Show password">Show</button></div>
-    <p class="hint">You will use this email and password to sign in once your request is approved.</p>
+    <p class="hint" id="su-hint" data-trial="You will use this email and password to sign in once your request is approved." data-paid="You will use this email and password to sign in. If you already have a trial, use the same email and the password you chose then.">You will use this email and password to sign in once your request is approved.</p>
+    <div id="su-trial-terms">
     <label for="su-terms-box">Trial terms (version 2026-11-21)</label>
     <div class="termsbox" id="su-terms-box" tabindex="0" role="region" aria-label="Trial terms"><p><b>1. Who we are and who owns what.</b> This trial is offered by EasyRetirementPlanner Pty Ltd (ABN 30 408 209 039) (&quot;we&quot;, &quot;us&quot;). Easy School Fees Planner, including its software, source code, calculations and methodology, design, content, and the results it produces, is our intellectual property (or licensed to us) and is protected by copyright and other laws. Nothing in this trial transfers any ownership to you.</p>
 <p><b>2. Who can have a trial.</b> Adults aged 18 or over who want to plan school fees and housing costs for their own household. You confirm the name and email address you give us are accurate and belong to you.</p>
@@ -405,8 +439,25 @@
 <p><b>12. Limitation of liability.</b> To the maximum extent permitted by law, we exclude all liability for any loss or damage arising from your use of, or inability to use, the trial, including indirect or consequential loss. Nothing in these terms excludes any right or remedy that cannot lawfully be excluded under the Australian Consumer Law.</p>
 <p><b>13. Your information.</b> We keep your name, email address, a scrambled (hashed) form of your password, and the details of your trial request. Your card details are held by Stripe, not by us. The figures you enter into the planner are saved on your own device and are not sent to us, unless you choose cloud saving: then your plan is encrypted on your device with a passphrase only you know before it is sent, and we cannot read it. If you use Planner Assistant or the school fee look-up, your question or the school you searched for is sent to an AI service to prepare the answer; no figures from your plan are ever included. Questions are not stored. Please do not enter your children&#x27;s names. We use your details to run and review the trial, to prevent misuse, and to contact you about a licence.</p>
 <p><b>14. Governing law.</b> These terms are governed by the laws of Victoria, Australia, and you submit to the non-exclusive jurisdiction of its courts.</p></div>
-    <label class="agree"><input type="checkbox" id="su-agree"><span>I am 18 or over and I have read and accept the trial terms.</span></label>
-    <div class="cardnote">Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and <strong>$0 is charged</strong>. We never see your card number.</div>
+    </div>
+    <div id="su-sub-terms" hidden>
+    <label for="su-subterms-box">Subscription terms (version 2026-11-24)</label>
+    <div class="termsbox" id="su-subterms-box" tabindex="0" role="region" aria-label="Subscription terms"><p><b>1. Who we are and who owns what.</b> These terms apply to a paid plan for Easy School Fees Planner, offered by EasyRetirementPlanner Pty Ltd (ABN 30 408 209 039) (&quot;we&quot;, &quot;us&quot;). The software, including its code, calculations and content, is our copyright.</p>
+<p><b>2. Who can subscribe.</b> Adults aged 18 or over who want to plan school fees and housing costs for their own household. One licence is held per email address, for you and your own household. You confirm the name and email address you give us are accurate and belong to you.</p>
+<p><b>3. Plans and price.</b> Monthly or annual, at the price shown on this page and on Stripe&rsquo;s payment page, in Australian dollars. Prices include GST where it applies. We may change the price for future renewals by emailing you at least 30 days beforehand.</p>
+<p><b>4. Payment and renewal.</b> Your card is charged when you subscribe and then at the start of each period, automatically, until you cancel. Payments are handled by our payment provider, Stripe, and we never see your card number. If a payment fails, Stripe will try again, and your access may stop if it cannot be collected.</p>
+<p><b>5. Cancelling.</b> You can cancel at any time using Manage subscription on the About page in the planner. You keep access until the end of the period you have paid for, and are not charged again.</p>
+<p><b>6. Refunds.</b> If the planner is not right for you, email us within 14 days of your first payment and we will refund that payment in full. Otherwise payments are not refundable, except where Australian law requires it. Nothing here limits your rights under the Australian Consumer Law.</p>
+<p><b>7. What is included.</b> All the features of the planner. The Planner Assistant and the school fee look-up have monthly fair-use limits (currently 60 questions and 15 fee look-ups a month) to keep the service sustainable. The planner may change over time, and we aim to keep its core planning features available.</p>
+<p><b>8. Licence and acceptable use.</b> We grant you a personal, non-exclusive, non-transferable licence to use the software through your own login for your own household&#x27;s planning. You must not, and must not let anyone else: copy, download, scrape, republish or redistribute the software, its code, pages, calculations or content (other than the printed or saved results of your own use); decompile, reverse-engineer or try to obtain the source code, formulas or methods; share your login; use the software to build or improve a competing product; or remove any copyright or ownership notice.</p>
+<p><b>9. Monitoring and breaches.</b> We may record how and when your login is used. If you break these terms we may suspend or end your access at once without notice, and may take legal action to stop the conduct and recover our losses and costs, to the full extent the law allows.</p>
+<p><b>10. General information only, and no warranty.</b> Easy School Fees Planner is a modelling tool. It gives general information from the figures you enter and simple assumptions. It is not financial, tax, credit or legal advice, and not a lender&#x27;s assessment of what you can borrow. Rates, duty, grants and rules change, so check the official sources before you act. Results are provided as is, without warranty, except those that cannot lawfully be excluded.</p>
+<p><b>11. Limitation of liability.</b> To the maximum extent permitted by law, we exclude all liability for loss or damage arising from your use of, or inability to use, the planner, including indirect or consequential loss. Nothing in these terms excludes any right or remedy that cannot lawfully be excluded under the Australian Consumer Law.</p>
+<p><b>12. Your information.</b> We keep your name, email address, a scrambled (hashed) form of your password, your plan and its dates. Your card details are held by Stripe, not by us. The figures you enter into the planner are saved on your own device and are not sent to us, unless you choose cloud saving: then your plan is encrypted in your browser with your passphrase, and we cannot read it. Questions you type to the Planner Assistant are sent to an AI service without any of your plan figures, and are not saved.</p>
+<p><b>13. Governing law.</b> These terms are governed by the laws of Victoria, Australia, and you submit to the non-exclusive jurisdiction of its courts.</p></div>
+    </div>
+    <label class="agree"><input type="checkbox" id="su-agree"><span id="su-agree-text" data-trial="I am 18 or over and I have read and accept the trial terms." data-paid="I am 18 or over and I have read and accept the subscription terms.">I am 18 or over and I have read and accept the trial terms.</span></label>
+    <div class="cardnote" id="su-cardnote" data-trial="Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and &lt;strong&gt;$0 is charged&lt;/strong&gt;. We never see your card number." data-paid="Next you will pay on Stripe&rsquo;s secure page. Your card is charged now and again each period until you cancel, which you can do at any time. We never see your card number.">Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and <strong>$0 is charged</strong>. We never see your card number.</div>
     <div id="su-err" class="err" role="alert" hidden></div>
     <div class="row"><button type="button" class="btn ghost" id="su-cancel">Cancel</button><button type="submit" class="btn" id="su-go">Continue to card step</button></div>
   </form>
@@ -415,11 +466,22 @@
 (function(){
   var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
   var TRIAL_TERMS_VERSION='2026-11-21';                    // must equal TRIAL_TERMS_VERSION in the Worker
+  var SUB_TERMS_VERSION='2026-11-24';                      // must equal SUB_TERMS_VERSION in the Worker
   var $=function(i){return document.getElementById(i)}, dlg=$('signup'), form=$('su-form');
   function show(id,msg){var e=$(id); e.textContent=msg||''; e.hidden=!msg}
   function isPhone(){return window.matchMedia('(max-width:600px)').matches||Math.min(screen.width,screen.height)<600}
   var dd=$('devicedlg'); $('dd-close').addEventListener('click',function(){dd.close?dd.close():dd.removeAttribute('open')});
-  function open(ev){ if(ev) ev.preventDefault(); if(isPhone()){ if(dd.showModal){dd.showModal()}else{dd.setAttribute('open','')} return } show('su-err',''); show('su-dup',''); if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }   // showModal() focuses the first field itself; a delayed focus() here could steal focus from what the person is typing in
+  var plan='trial';
+  function goLabel(){return plan==='trial'?'Continue to card step':'Continue to payment'}
+  function setPlan(p){
+    plan=(p==='monthly'||p==='annual')?p:'trial'; var paid=plan!=='trial';
+    [].forEach.call(form.querySelectorAll('input[name=plan]'),function(r){r.checked=(r.value===plan);r.parentNode.className=r.checked?'on':''});
+    $('su-trial-terms').hidden=paid; $('su-sub-terms').hidden=!paid;
+    ['su-sub','su-hint','su-agree-text','su-cardnote'].forEach(function(id){var el=$(id); el.innerHTML=el.getAttribute(paid?'data-paid':'data-trial')});
+    $('su-go').textContent=goLabel(); if(paid) show('su-dup','');
+  }
+  form.addEventListener('change',function(e){if(e.target&&e.target.name==='plan')setPlan(e.target.value)});
+  function open(ev,p){ if(ev&&ev.preventDefault) ev.preventDefault(); var want=p||(ev&&ev.currentTarget&&ev.currentTarget.getAttribute&&ev.currentTarget.getAttribute('data-plan'))||'trial'; if(isPhone()){ if(dd.showModal){dd.showModal()}else{dd.setAttribute('open','')} return } setPlan(want); show('su-err',''); show('su-dup',''); if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }   // showModal() focuses the first field itself; a delayed focus() here could steal focus from what the person is typing in
   Array.prototype.forEach.call(document.querySelectorAll('[data-open-signup]'),function(a){a.addEventListener('click',open)});
   $('su-cancel').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
   $('su-show').addEventListener('click',function(){var p=$('su-pass'),s=p.type==='password';p.type=s?'text':'password';this.textContent=s?'Hide':'Show'});
@@ -435,16 +497,25 @@
     if(!name) return show('su-err','Please enter your name.');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return show('su-err','Please enter a valid email address.');
     if(pass.length<8) return show('su-err','Please choose a password of at least 8 characters.');
-    if(!$('su-agree').checked) return show('su-err','Please tick the box to accept the trial terms.');
+    var paid=plan!=='trial';
+    if(!$('su-agree').checked) return show('su-err','Please tick the box to accept the '+(paid?'subscription':'trial')+' terms.');
     var go=$('su-go'); go.disabled=true; go.textContent='One moment...';
-    post('/create-trial-session',{name:name,email:email,password:pass,trialTermsAccepted:true,trialTermsVersion:TRIAL_TERMS_VERSION,
-      successUrl:location.origin+'/app/',cancelUrl:location.origin+'/#join'}).then(function(j){
+    var req=paid?post('/create-subscription-session',{plan:plan,name:name,email:email,password:pass,subTermsAccepted:true,subTermsVersion:SUB_TERMS_VERSION,successUrl:location.origin+'/app/',cancelUrl:location.origin+'/#plans'})
+      :post('/create-trial-session',{name:name,email:email,password:pass,trialTermsAccepted:true,trialTermsVersion:TRIAL_TERMS_VERSION,successUrl:location.origin+'/app/',cancelUrl:location.origin+'/#join'});
+    req.then(function(j){
       if(j&&j.url){ location.href=j.url; return }
-      go.disabled=false; go.textContent='Continue to card step';
+      go.disabled=false; go.textContent=goLabel();
       show('su-err',(j&&j.error)||'Something went wrong. Please try again.');
-    }).catch(function(){ go.disabled=false; go.textContent='Continue to card step'; show('su-err','We could not reach the sign-up service. Please check your connection and try again.') });
+    }).catch(function(){ go.disabled=false; go.textContent=goLabel(); show('su-err','We could not reach the sign-up service. Please check your connection and try again.') });
   });
   if(location.hash==='#join' && /[?&]cancelled/.test(location.search)) open();
+  var qp=/[?&]subscribe=(monthly|annual)/.exec(location.search); if(qp) open(null,qp[1]);   // the planner's trial banner links here
+  // Show the prices the Worker will actually charge (the page text is only the fallback).
+  function money(c){return 'A$'+(c%100===0?(c/100):(c/100).toFixed(2))}
+  fetch(WORKER+'/plans').then(function(r){return r.json()}).then(function(j){
+    if(!j||!j.ok)return; var fill=function(sel,t){[].forEach.call(document.querySelectorAll(sel),function(e){e.textContent=t})};
+    fill('[data-price=monthly]',money(j.monthly.cents)); fill('[data-price=annual]',money(j.annual.cents)); fill('[data-saving]',String(j.annual.savingPct)); fill('[data-permonth]',money(Math.round(j.annual.cents/12))); fill('[data-trialdays]',String(j.trialDays));
+  }).catch(function(){});
 })();
 </script>
 <script>(function(){var links=[].slice.call(document.querySelectorAll('.pillrow a')),map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});

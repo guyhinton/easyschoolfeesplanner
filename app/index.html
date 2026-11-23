@@ -22,6 +22,7 @@
   input:focus{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--brand)}
   .pw{position:relative}.pw button{position:absolute;right:6px;top:6px;border:0;background:transparent;color:var(--brand);font:inherit;font-weight:600;font-size:14px;padding:6px 8px;cursor:pointer}
   .btn{display:inline-block;width:100%;margin-top:18px;background:var(--brand);color:#fff;border:0;border-radius:999px;padding:13px 22px;font:inherit;font-weight:700;font-size:17px;cursor:pointer;text-align:center;text-decoration:none}
+  .btn.alt{background:#fff;color:var(--brand);border:2px solid var(--brand)}.btn.alt:hover{background:var(--brand-soft)}
   .btn:hover{background:var(--brand-dark)}.btn[disabled]{opacity:.6;cursor:wait}
   .link{background:none;border:0;color:var(--brand);font:inherit;font-size:15px;text-decoration:underline;cursor:pointer;padding:0}
   .msg{border-radius:12px;padding:12px 14px;margin:14px 0 0;font-size:15px}
@@ -70,6 +71,14 @@
     </form>
   </section>
 
+  <section class="card" id="v-plans" hidden>
+    <h1 id="pl-title">Your trial has ended</h1>
+    <p class="muted" id="pl-body">Thank you for trying Easy School Fees Planner. To carry on, choose a plan. Your plan starts straight away, and you can cancel at any time.</p>
+    <a class="btn" id="pl-annual" href="/?subscribe=annual">Annual: <span data-price="annual">A$129</span> a year (save <span data-saving>28</span>%)</a>
+    <a class="btn alt" id="pl-monthly" href="/?subscribe=monthly">Monthly: <span data-price="monthly">A$14.99</span> a month</a>
+    <p class="foot">Use the same email address you signed up with, and the password you chose.</p>
+    <p class="foot"><button class="link" id="pl-back" type="button">Back to sign in</button></p>
+  </section>
   <section class="card" id="v-done" hidden>
     <h1 id="dn-title"></h1>
     <p id="dn-body"></p>
@@ -79,8 +88,8 @@
 </main>
 <script>
 (function(){
-  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev';   // the deployed Worker address: no slash on the end
-  var $=function(i){return document.getElementById(i)}, VIEWS=['v-loading','v-signin','v-forgot','v-reset','v-done'];
+  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
+  var $=function(i){return document.getElementById(i)}, VIEWS=['v-loading','v-signin','v-forgot','v-reset','v-plans','v-done'];
   function view(id){VIEWS.forEach(function(v){$(v).hidden=(v!==id)}); var f=$(id).querySelector('input'); if(f&&id!=='v-loading')setTimeout(function(){var a=document.activeElement;if(a===document.body||a.tagName==='BUTTON'){try{f.focus()}catch(e){}}},30)}   // never takes focus from a box the person has already clicked into
   function say(id,text,cls){var e=$(id);e.textContent=text||'';e.className='msg '+(cls||'err');e.hidden=!text}
   function api(path,opt){return fetch(WORKER+path,opt).then(function(r){return r.json().catch(function(){return {}}).then(function(j){j._status=r.status;return j})})}
@@ -100,6 +109,7 @@
     if(j&&j.valid&&j.appToken) return loadApp(j.appToken);
     if(j&&j.pending) return done('Your request is with us','We review each request personally and will email you when it is approved, usually within one business day. Your trial starts when it is approved. Your card has not been charged.',j.licenceNumber?'Reference: '+j.licenceNumber:'');
     if(j&&j.declined) return done('Your request was not approved',j.error||'Please contact info@easyschoolfeesplanner.com.au.',j.licenceNumber?'Reference: '+j.licenceNumber:'');
+    if(j&&j.expired&&j.canSubscribe){ $('pl-title').textContent=j.subscriptionEnded?'Your subscription has ended':(j.error||'Your trial has ended'); $('pl-body').textContent=j.subscriptionEnded?'Choose a plan to carry on. Your plan starts straight away, and you can cancel at any time.':'Thank you for trying Easy School Fees Planner. To carry on, choose a plan. Your plan starts straight away, and you can cancel at any time.'; return view('v-plans'); }
     if(j&&j.expired) return done(j.error||'Your trial has ended','To continue, please contact info@easyschoolfeesplanner.com.au.',j.licenceNumber?'Licence: '+j.licenceNumber:'');
     view('v-signin'); say('si-msg',(j&&j.error)||'Sign-in did not work. Please try again.');
   }
@@ -108,6 +118,8 @@
   $('to-forgot').addEventListener('click',function(){$('fg-email').value=$('si-email').value;say('fg-msg','');view('v-forgot')});
   $('fg-back').addEventListener('click',function(){view('v-signin')});
   $('dn-back').addEventListener('click',function(){say('si-msg','');view('v-signin')});
+  $('pl-back').addEventListener('click',function(){say('si-msg','');view('v-signin')});
+  fetch(WORKER+'/plans').then(function(r){return r.json()}).then(function(j){ if(!j||!j.ok)return; var m=function(c){return 'A$'+(c%100===0?(c/100):(c/100).toFixed(2))}, f=function(sel,t){[].forEach.call(document.querySelectorAll(sel),function(e){e.textContent=t})}; f('[data-price=monthly]',m(j.monthly.cents)); f('[data-price=annual]',m(j.annual.cents)); f('[data-saving]',String(j.annual.savingPct)) }).catch(function(){});
 
   $('f-signin').addEventListener('submit',function(ev){
     ev.preventDefault(); say('si-msg','');
@@ -137,6 +149,14 @@
   // What brought them here?
   var q=new URLSearchParams(location.search);
   if(q.get('reset')){ resetToken=q.get('reset'); view('v-reset'); }
+  else if(q.get('session_id') && q.get('entry')==='subscribe'){
+    $('loading-text').textContent='Confirming your payment...';
+    api('/verify-subscription-session?session_id='+encodeURIComponent(q.get('session_id'))).then(function(j){
+      history.replaceState(null,'','/app/');
+      if(j&&j.valid&&j.appToken) return loadApp(j.appToken);
+      view('v-signin'); say('si-msg',(j&&j.error)||'We could not confirm your payment. If you finished paying, please sign in, or contact info@easyschoolfeesplanner.com.au.');
+    }).catch(function(){ view('v-signin'); say('si-msg','We could not reach the service to confirm your payment. Please try signing in, or contact info@easyschoolfeesplanner.com.au.') });
+  }
   else if(q.get('session_id')){
     $('loading-text').textContent='Confirming your card step...';
     api('/verify-trial-session?session_id='+encodeURIComponent(q.get('session_id'))).then(function(j){
