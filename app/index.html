@@ -49,7 +49,7 @@
     </form>
     <p class="foot"><button class="link" id="to-forgot" type="button">Forgot your password?</button></p>
     <p class="foot"><button class="link" id="to-code" type="button">Email me a sign-in code instead</button></p>
-    <p class="foot">No licence yet? <a href="/#join">Request early access</a></p>
+    <p class="foot">No licence yet? <a href="/#plans">Sign up</a></p>
   </section>
 
   <section class="card" id="v-forgot" hidden>
@@ -96,6 +96,7 @@
     <p class="ref" id="dn-ref"></p>
     <button class="btn" id="dn-back" type="button">Back to sign in</button>
   </section>
+  <p class="foot" style="font-size:12px;margin-top:22px">&copy; <span id="yr">2026</span> ABN 30 408 209 039 trading as Easy School Fees Planner. All rights reserved.</p>
 </main>
 <script>
 (function(){
@@ -186,5 +187,6 @@
   } else view('v-signin');
 })();
 </script>
+<script>try{document.getElementById('yr').textContent=new Date().getFullYear()}catch(e){}</script>
 </body>
 </html>
