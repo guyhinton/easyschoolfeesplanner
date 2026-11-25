@@ -166,8 +166,11 @@
   .badge{flex:none;background:var(--accent);color:#2A1A06;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:6px 12px;margin-top:2px}
   @media (max-width:700px){.soon{flex-direction:column;gap:10px;padding:20px}}
 </style>
-<!-- Cloudflare Web Analytics -->
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "324a0b0f531246cb9094e431df58110c"}'></script>
+<!-- Cloudflare Web Analytics (visit counting). The owner can switch it off in one browser by visiting /?nocount=1, and back on with /?nocount=0 -->
+<script>
+(function(){try{var q=location.search;if(/[?&]nocount=1/.test(q))localStorage.setItem('sfpNoCount','1');else if(/[?&]nocount=0/.test(q))localStorage.removeItem('sfpNoCount');if(localStorage.getItem('sfpNoCount')==='1')return}catch(e){}
+var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "324a0b0f531246cb9094e431df58110c"}');document.head.appendChild(s)})();
+</script>
 <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
