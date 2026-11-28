@@ -141,6 +141,8 @@
   @media (max-width:900px){.plans{grid-template-columns:1fr}}
   .signin-note{margin:14px 0 0!important;font-size:15px!important}
   .signin-note a{color:#fff}
+  dialog#termsdlg{border:0;border-radius:20px;padding:0;max-width:640px;width:calc(100% - 28px);box-shadow:0 24px 70px rgba(6,42,41,.35);color:var(--ink)}dialog#termsdlg::backdrop{background:rgba(6,42,41,.55)}
+  .termsbox.tall{height:min(60vh,460px)}.termslink{color:var(--brand);font-weight:600;text-decoration:underline}
   dialog#signup,dialog#devicedlg{border:0;border-radius:20px;padding:0;max-width:560px;width:calc(100% - 28px);box-shadow:0 24px 70px rgba(6,42,41,.35);color:var(--ink)}
   dialog#signup::backdrop,dialog#devicedlg::backdrop{background:rgba(6,42,41,.55)}
   .dlg{padding:26px 28px 24px;max-height:92vh;overflow:auto}
@@ -229,6 +231,7 @@
   .trylist li:last-child button{border-bottom:0}
   .trylist button:hover,.trylist button:focus{background:#EAF4F2;outline:0}
   .trylist small{display:block;color:var(--muted);font-size:13px}
+  #su-form.slim #su-plans{display:none}
   .tryfine{font-size:13px;color:var(--muted);margin:10px 0 0}
   .linkbtn{all:unset;cursor:pointer;color:var(--brand);font-weight:600;text-decoration:underline;font-size:14px}.linkbtn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
   .feecard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px;box-shadow:0 18px 40px -26px rgba(15,95,92,.5)}
@@ -418,6 +421,9 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
     <div class="row"><button type="button" class="btn" id="dd-close">Close</button></div>
   </div>
 </dialog>
+<dialog id="termsdlg" aria-labelledby="td-title">
+  <div class="dlg"><h2 id="td-title">Trial terms</h2><div class="termsbox tall" id="td-body" tabindex="0" role="region" aria-label="Terms"></div><div class="row"><button type="button" class="btn" id="td-close">Close</button></div></div>
+</dialog>
 <dialog id="signup" aria-labelledby="su-title">
   <form class="dlg" id="su-form" novalidate autocomplete="on">
     <h2 id="su-title">Sign up</h2>
@@ -426,7 +432,7 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
       <label data-p="annual"><input type="radio" name="plan" value="annual"><span><b>Annual</b> <span data-price="annual">A$129</span> a year<small>Save <span data-saving>46</span>%. Cancel any time.</small></span></label>
       <label data-p="monthly"><input type="radio" name="plan" value="monthly"><span><b>Monthly</b> <span data-price="monthly">A$19.99</span> a month<small>Cancel any time.</small></span></label>
     </fieldset>
-    <p class="sub" id="su-sub" data-trial="Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email." data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email.</p>
+    <p class="sub" id="su-sub" data-trial="<strong>Free access for <span data-trialdays>7</span> days.</strong> Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email." data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email.</p>
     <label for="su-name">Your name</label>
     <input id="su-name" type="text" name="name" autocomplete="name" maxlength="100" required>
     <label for="su-email">Email address</label>
@@ -435,6 +441,7 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
     <label for="su-pass">Choose a password (at least 10 characters)</label>
     <div class="pwrow"><input id="su-pass" type="password" name="password" autocomplete="new-password" minlength="10" maxlength="200" required><button type="button" id="su-show" aria-label="Show password">Show</button></div>
     <p class="hint" id="su-hint" data-trial="You will use this email and password to sign in once your request is approved." data-paid="You will use this email and password to sign in. If you already have a trial, use the same email and the password you chose then.">You will use this email and password to sign in once your request is approved.</p>
+    <div id="su-terms-store" hidden>
     <div id="su-trial-terms">
     <label for="su-terms-box">Trial terms (version 2026-11-26)</label>
     <div class="termsbox" id="su-terms-box" tabindex="0" role="region" aria-label="Trial terms"><p><b>1. Who we are and who owns what.</b> This trial is offered by ABN 30 408 209 039 trading as Easy School Fees Planner (&quot;we&quot;, &quot;us&quot;). Easy School Fees Planner, including its software, source code, calculations and methodology, design, content, and the results it produces, is our intellectual property (or licensed to us) and is protected by copyright and other laws. Nothing in this trial transfers any ownership to you.</p>
@@ -473,10 +480,11 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
 <p><b>12. Your information.</b> We keep your name, email address, a scrambled (hashed) form of your password, your plan and its dates. Your card details are held by Stripe, not by us. The figures you enter into the planner are saved on your own device and are not sent to us, unless you choose cloud saving: then your plan is encrypted in your browser with your passphrase, and we cannot read it. Questions you type to the Planner Assistant are sent to an AI service without any of your plan figures, and are not saved.</p>
 <p><b>13. Governing law.</b> These terms are governed by the laws of Victoria, Australia, and you submit to the non-exclusive jurisdiction of its courts.</p></div>
     </div>
-    <label class="agree"><input type="checkbox" id="su-agree"><span id="su-agree-text" data-trial="I am 18 or over and I have read and accept the trial terms." data-paid="I am 18 or over and I have read and accept the subscription terms.">I am 18 or over and I have read and accept the trial terms.</span></label>
+    </div>
+    <label class="agree"><input type="checkbox" id="su-agree"><span id="su-agree-text" data-trial="I am 18 or over and I accept the &lt;a href=&quot;#terms&quot; class=&quot;termslink&quot;&gt;trial terms&lt;/a&gt;." data-paid="I am 18 or over and I accept the &lt;a href=&quot;#terms&quot; class=&quot;termslink&quot;&gt;subscription terms&lt;/a&gt;.">I am 18 or over and I accept the <a href="#terms" class="termslink">trial terms</a>.</span></label>
     <div class="cardnote" id="su-cardnote" data-trial="Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and &lt;strong&gt;$0 is charged&lt;/strong&gt;. We never see your card number." data-paid="Next you will pay on Stripe&rsquo;s secure page. Your card is charged now and again each period until you cancel, which you can do at any time. We never see your card number.">Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and <strong>$0 is charged</strong>. We never see your card number.</div>
     <div id="su-err" class="err" role="alert" hidden></div>
-    <div class="row"><button type="button" class="btn ghost" id="su-cancel">Cancel</button><button type="submit" class="btn" id="su-go">Continue to card step</button></div>
+    <div class="row"><button type="button" class="btn ghost" id="su-cancel">Cancel</button><button type="submit" class="btn" id="su-go">Continue</button></div>
   </form>
 </dialog>
 <script>
@@ -489,7 +497,7 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
   function isPhone(){return window.matchMedia('(max-width:600px)').matches||Math.min(screen.width,screen.height)<600}
   var dd=$('devicedlg'); $('dd-close').addEventListener('click',function(){dd.close?dd.close():dd.removeAttribute('open')});
   var plan='trial';
-  function goLabel(){return plan==='trial'?'Continue to card step':'Continue to payment'}
+  function goLabel(){return plan==='trial'?'Continue':'Continue to payment'}
   function setPlan(p){
     plan=(p==='monthly'||p==='annual')?p:'trial'; var paid=plan!=='trial';
     [].forEach.call(form.querySelectorAll('input[name=plan]'),function(r){r.checked=(r.value===plan);r.parentNode.className=r.checked?'on':''});
@@ -497,9 +505,14 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
     ['su-sub','su-hint','su-agree-text','su-cardnote'].forEach(function(id){var el=$(id); el.innerHTML=el.getAttribute(paid?'data-paid':'data-trial')});
     $('su-go').textContent=goLabel(); if(paid) show('su-dup','');
   }
+  var td=$('termsdlg');
+  function openTerms(){ var paid=plan!=='trial', box=$(paid?'su-subterms-box':'su-terms-box'), lab=box.parentNode.querySelector('label'); $('td-title').textContent=lab?lab.textContent:'Terms'; $('td-body').innerHTML=box.innerHTML; $('td-body').scrollTop=0; if(td.showModal){td.showModal()}else{td.setAttribute('open','')} }
+  $('td-close').addEventListener('click',function(){td.close?td.close():td.removeAttribute('open')});
+  form.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('.termslink'); if(a){e.preventDefault(); openTerms()}});
   form.addEventListener('change',function(e){if(e.target&&e.target.name==='plan')setPlan(e.target.value)});
-  function open(ev,p){ if(ev&&ev.preventDefault) ev.preventDefault(); var want=p||(ev&&ev.currentTarget&&ev.currentTarget.getAttribute&&ev.currentTarget.getAttribute('data-plan'))||'trial'; if(isPhone()){ if(dd.showModal){dd.showModal()}else{dd.setAttribute('open','')} return } setPlan(want); show('su-err',''); show('su-dup',''); if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }   // showModal() focuses the first field itself; a delayed focus() here could steal focus from what the person is typing in
+  function open(ev,p,slim){ if(ev&&ev.preventDefault) ev.preventDefault(); form.className=(form.className||'').replace(/\bslim\b/g,'').trim()+(slim?' slim':''); var want=p||(ev&&ev.currentTarget&&ev.currentTarget.getAttribute&&ev.currentTarget.getAttribute('data-plan'))||'trial'; if(isPhone()){ if(dd.showModal){dd.showModal()}else{dd.setAttribute('open','')} return } setPlan(want); show('su-err',''); show('su-dup',''); if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }   // showModal() focuses the first field itself; a delayed focus() here could steal focus from what the person is typing in
   Array.prototype.forEach.call(document.querySelectorAll('[data-open-signup]'),function(a){a.addEventListener('click',open)});
+  window.sfpOpenSlim=function(){ open(null,'trial',true) };   // from the school look-up: only the free access sign-up, with no plan choice or prices
   $('su-cancel').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
   $('su-show').addEventListener('click',function(){var p=$('su-pass'),s=p.type==='password';p.type=s?'text':'password';this.textContent=s?'Hide':'Show'});
   function post(path,body){return fetch(WORKER+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json().catch(function(){return {}}).then(function(j){j._status=r.status;return j})})}
@@ -553,8 +566,8 @@ Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)i
   function money(v){return 'A$'+Math.round(v).toLocaleString('en-AU')}
   function lvl(l){return l===0?'Prep':'Year '+l}
   function host(u){try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return ''}}
-  function openSignup(){var a=document.querySelector('[data-open-signup]'); if(a) a.click()}
-  function signupMsg(text){ out.innerHTML='<p class="feemsg"><b>'+esc(text)+'</b><br><a class="btn small" href="#join" id="try-su">Continue to the planner</a></p>'; $('try-su').addEventListener('click',function(e){e.preventDefault();openSignup()}) }
+  function openSignup(){ if(window.sfpOpenSlim) window.sfpOpenSlim() }
+  function signupMsg(text){ out.innerHTML='<p class="feemsg"><b>'+esc(text)+'</b><br><a class="btn small" href="#join" id="try-su">Register</a></p>'; $('try-su').addEventListener('click',function(e){e.preventDefault();openSignup()}) }
   var pos=null, locBtn=$('try-loc');
   function posQs(){return pos?'&lat='+pos.lat+'&lng='+pos.lng:''}
   function showNearby(j){ var s=(j&&j.nearby)||[]; if(!s.length){list.hidden=true;return} list._s=s; list.innerHTML='<li><span style="display:block;padding:8px 16px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)">Near '+esc(j.where||'you')+'</span></li>'+s.map(function(x,i){return '<li><button type="button" data-i="'+i+'">'+esc(x.name)+'<small>'+esc(x.suburb)+' '+esc(x.state)+(x.sector?' · '+esc(x.sector):'')+'</small></button></li>'}).join(''); list.hidden=false }
@@ -576,12 +589,12 @@ Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)i
   function pick(sc){
     picked=sc; list.hidden=true; q.value=sc.name;
     var used=lsGet(USED);
-    if(used&&used!==sc.id){ signupMsg('Looking up more schools is part of the planner. Continue to set it up and search as many as you like.'); return }
+    if(used&&used!==sc.id){ signupMsg('Sign up for access to more school fees.'); return }
     out.innerHTML='<div class="feecard"><p class="where">Reading the fees for '+esc(sc.name)+'. This can take up to a minute...</p></div>';
     fetch(WORKER+'/public/fees',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:sc.id,visitor:visitor})}).then(function(r){return r.json().catch(function(){return {}}).then(function(j){j._status=r.status;return j})}).then(function(j){
       if(j.signup){ lsSet(USED,'x'); return signupMsg(j.error) }
-      if(!j.ok) { out.innerHTML='<p class="feemsg">'+esc(j.error||'The look-up did not work this time. Please try again.')+(j.resting?'<br><a class="btn small" href="#join" id="try-su">Continue to the planner</a>':'')+'</p>'; var b=$('try-su'); if(b) b.addEventListener('click',function(e){e.preventDefault();openSignup()}); return }
-      if(!j.found){ out.innerHTML='<p class="feemsg"><b>No published fee schedule was found for '+esc(sc.name)+'.</b><br>'+esc(j.message||'')+'<br><a class="btn small" href="#join" id="try-su">Continue to the planner</a></p>'; $('try-su').addEventListener('click',function(e){e.preventDefault();openSignup()}); return }
+      if(!j.ok) { out.innerHTML='<p class="feemsg">'+esc(j.error||'The look-up did not work this time. Please try again.')+(j.resting?'<br><a class="btn small" href="#join" id="try-su">Register</a>':'')+'</p>'; var b=$('try-su'); if(b) b.addEventListener('click',function(e){e.preventDefault();openSignup()}); return }
+      if(!j.found){ out.innerHTML='<p class="feemsg"><b>No published fee schedule was found for '+esc(sc.name)+'.</b><br>'+esc(j.message||'')+'<br><a class="btn small" href="#join" id="try-su">Register</a></p>'; $('try-su').addEventListener('click',function(e){e.preventDefault();openSignup()}); return }
       lsSet(USED,sc.id); render(sc,j)
     }).catch(function(){ out.innerHTML='<p class="feemsg">We could not reach the fee look-up. Please check your connection and try again.</p>' })
   }
