@@ -36,7 +36,7 @@ John: Let's see what happens if we buy a year later.
 
 Real life brings other costs too.
 
-Add an expense in seconds: a name, a type, an amount and a year.
+Tap the plus beside Living costs to add an expense: a name, a type, an amount and a year.
 
 Jane: We added a new car in 2030.
 
@@ -44,11 +44,19 @@ Thirty thousand dollars.
 
 That was it.
 
+The plus beside Additional income adds money coming in, like a bonus or a lump sum.
+
+John: We added a $20,000 bonus in 2028.
+
 Move a child's school years, or stretch a rental.
 
 Add a work break, or a windfall.
 
 Years where the money doesn't stretch are flagged, so you can see exactly which choice causes the squeeze.
+
+On a busy screen, open the board in full screen.
+
+Then switch on the magnifier and drag it over any part of the plan to read the figures in large print.
 
 Jane: It used to be a spreadsheet nightmare.
 
