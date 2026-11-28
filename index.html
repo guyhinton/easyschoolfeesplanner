@@ -432,7 +432,7 @@ var s=document.createElement('script');s.type='module';s.src='https://static.clo
       <label data-p="annual"><input type="radio" name="plan" value="annual"><span><b>Annual</b> <span data-price="annual">A$129</span> a year<small>Save <span data-saving>46</span>%. Cancel any time.</small></span></label>
       <label data-p="monthly"><input type="radio" name="plan" value="monthly"><span><b>Monthly</b> <span data-price="monthly">A$19.99</span> a month<small>Cancel any time.</small></span></label>
     </fieldset>
-    <p class="sub" id="su-sub" data-trial="<strong>Free access for <span data-trialdays>7</span> days.</strong> Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email." data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are, accept the trial terms, and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email.</p>
+    <p class="sub" id="su-sub" data-trial="Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email. <strong>This trial is free and provides full access for <span data-trialdays>7</span> days.</strong>" data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email. <strong>This trial is free and provides full access for <span data-trialdays>7</span> days.</strong></p>
     <label for="su-name">Your name</label>
     <input id="su-name" type="text" name="name" autocomplete="name" maxlength="100" required>
     <label for="su-email">Email address</label>
@@ -605,12 +605,12 @@ Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)i
     var first=(j.bands||[]).reduce(function(m,b){return Math.min(m,b.from)},99), last=(j.bands||[]).reduce(function(m,b){return Math.max(m,b.to)},-1);
     var s=j.school||sc;
     out.innerHTML='<div class="feecard"><h3>'+esc(s.name)+'</h3><p class="where">'+esc(s.suburb)+' '+esc(s.state)+(sc.sector?' · '+esc(sc.sector):'')+(j.year?' · fees for '+esc(j.year):'')+'</p>'+
-      '<table class="feetbl"><thead><tr><th>Year level</th><th class="n">Tuition</th><th class="n">Other charges</th><th class="n">A year</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td colspan="3">'+esc(lvl(first))+' to '+esc(lvl(last))+', at today\'s fees</td><td class="n">'+money(total)+'</td></tr></tfoot></table>'+
+      '<table class="feetbl"><thead><tr><th>Year level</th><th class="n">Tuition</th><th class="n">Other charges</th><th class="n">A year</th></tr></thead><tbody>'+rows+'</tbody></table>'+
       '<p class="src">Indicative only. Read from <a href="'+esc(j.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(host(j.sourceUrl))+'</a> and not checked with the school. Please confirm with the school.'+(j.note?' '+esc(j.note):'')+'</p>'+
       '<div class="feeacts"><button type="button" class="btn" id="try-add">Add this school to my plan</button><span class="tryfine" style="margin:0">Fees rise each year, and the planner allows for that.</span></div></div>';
     $('try-add').addEventListener('click',function(){
       lsSet(PEND,JSON.stringify({v:1,id:sc.id,name:s.name,suburb:s.suburb,state:s.state,sector:sc.sector||'',type:sc.type||'',sourceUrl:j.sourceUrl,year:j.year,readAt:j.readAt,note:j.note||'',bands:j.bands,at:Date.now()}));
-      openSignup(); var n=$('su-sub'); if(n&&!$('su-addnote')){ var p=document.createElement('p'); p.id='su-addnote'; p.className='hint'; p.style.fontWeight='600'; p.textContent='Your school, '+s.name+', will be added to your first plan when you sign in.'; n.parentNode.insertBefore(p,n) }
+      openSignup(); var n=$('su-sub'); if(n&&!$('su-addnote')){ var p=document.createElement('p'); p.id='su-addnote'; p.className='sub'; p.style.fontWeight='600'; p.style.margin='0 0 8px'; p.textContent='Your school, '+s.name+', will be added to your first plan when you sign in.'; n.parentNode.insertBefore(p,n) }
     })
   }
 })();
