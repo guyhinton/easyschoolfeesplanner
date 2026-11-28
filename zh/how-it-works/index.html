@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使用方法 | Easy School Fees Planner</title>
+<meta name="description" content="四步看清孩子的学费全局：您的家庭、您的学校、付款方式，以及一个规划看板上的整体情况。还有规划器的全部功能。">
+<meta property="og:title" content="使用方法 | Easy School Fees Planner">
+<meta property="og:description" content="四步看清孩子的学费全局：您的家庭、您的学校、付款方式，以及一个规划看板上的整体情况。还有规划器的全部功能。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.easyschoolfeesplanner.com.au/zh/how-it-works/">
+<meta property="og:locale" content="zh_CN">
+<link rel="canonical" href="https://www.easyschoolfeesplanner.com.au/zh/how-it-works/">
+<link rel="alternate" hreflang="en-AU" href="https://www.easyschoolfeesplanner.com.au/how-it-works/"><link rel="alternate" hreflang="zh-Hans" href="https://www.easyschoolfeesplanner.com.au/zh/how-it-works/"><link rel="alternate" hreflang="x-default" href="https://www.easyschoolfeesplanner.com.au/how-it-works/">
+<meta name="theme-color" content="#0F5F5C">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20viewBox=%220%200%2064%2064%22%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2264%22%20height=%2264%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22iSky%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%230A4644%22/%3E%3Cstop%20offset=%22.55%22%20stop-color=%22%230F5F5C%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B9088%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id=%22iSun%22%20x1=%220%22%20y1=%220%22%20x2=%220%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23FBE08A%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23F4B860%22/%3E%3C/linearGradient%3E%3CclipPath%20id=%22iCl%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2214%22/%3E%3C/clipPath%3E%3C/defs%3E%3Cg%20clip-path=%22url(%23iCl)%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20fill=%22url(%23iSky)%22/%3E%3Crect%20x=%2212%22%20y=%2244%22%20width=%228%22%20height=%2210%22%20rx=%221.5%22%20fill=%22%239DD6CF%22/%3E%3Crect%20x=%2223%22%20y=%2238%22%20width=%228%22%20height=%2216%22%20rx=%221.5%22%20fill=%22%23C6E8E3%22/%3E%3Crect%20x=%2234%22%20y=%2232%22%20width=%228%22%20height=%2222%22%20rx=%221.5%22%20fill=%22%23E3F1EF%22/%3E%3Ccircle%20cx=%2250%22%20cy=%2244%22%20r=%227%22%20fill=%22url(%23iSun)%22/%3E%3Ctext%20x=%2250%22%20y=%2247.5%22%20text-anchor=%22middle%22%20font-family=%22Arial,sans-serif%22%20font-weight=%22700%22%20font-size=%2210%22%20fill=%22%238A5A14%22%3E%24%3C/text%3E%3Cpath%20d=%22M32%209%2056%2020%2032%2031%208%2020z%22%20fill=%22%23FFFFFF%22/%3E%3Cpath%20d=%22M52%2021.5v8%22%20stroke=%22%23F4B860%22%20stroke-width=%222.2%22%20stroke-linecap=%22round%22/%3E%3Ccircle%20cx=%2252%22%20cy=%2231.5%22%20r=%222.4%22%20fill=%22%23F4B860%22/%3E%3C/g%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#14211F; --muted:#51615E; --line:#DCE6E3; --bg:#FAFCFB; --card:#FFFFFF;
+    --brand:#0F5F5C; --brand-dark:#0A4644; --brand-soft:#E3F1EF; --accent:#F4A261; --accent-dark:#B45F13;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand)}
+  .wrap{max-width:1800px;margin:0 auto;padding:0 clamp(20px,4.5vw,88px)}
+  .wide{max-width:1800px;margin:0 auto;padding:0 clamp(20px,4.5vw,88px)}
+  header.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand svg{width:34px;height:34px;flex:none}
+  .nav ul{display:flex;gap:clamp(18px,2.4vw,40px);list-style:none;margin:0;padding:0;align-items:center}
+  .nav li a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+  .nav li a:hover{color:var(--brand)}
+  .btn{display:inline-block;background:var(--brand);color:#fff!important;padding:13px 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer;transition:background .15s}
+  .btn:hover{background:var(--brand-dark)}
+  .btn.ghost{background:transparent;color:var(--brand)!important;border:1.5px solid var(--brand)}
+  .btn.ghost:hover{background:var(--brand-soft)}
+  .btn.small{padding:9px 18px;font-size:14px}
+  .introrow{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,30%,500px);gap:clamp(24px,4vw,72px);align-items:start;margin-bottom:clamp(28px,3.5vw,48px)}
+  .introrow .intro{margin:0}
+  .scene{margin:0;border-radius:26px;overflow:hidden;box-shadow:0 24px 48px -30px rgba(15,95,92,.55)}
+  .scene svg{display:block}
+  html{scroll-padding-top:136px}
+  .pillrow{border-top:1px solid var(--line);background:rgba(255,255,255,.92)}
+  .pillrow .wide{display:flex;gap:10px;overflow-x:auto;padding:9px clamp(20px,4.5vw,88px);scrollbar-width:none}
+  .pillrow .wide::-webkit-scrollbar{display:none}
+  .pillrow a{flex:none;white-space:nowrap;padding:7px 18px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--brand);font-size:14px;font-weight:600;text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+  .pillrow a:hover{background:var(--brand-soft);border-color:#BFD8D3}
+  .pillrow a.on{background:var(--brand);border-color:var(--brand);color:#fff}
+  @media (max-width:900px){.introrow{grid-template-columns:1fr}.scene{max-width:520px}html{scroll-padding-top:124px}}
+  .btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  .hero{padding:clamp(48px,7vw,104px) 0 clamp(56px,7vw,96px);background:radial-gradient(1100px 520px at 88% -8%,#D6EEE9 0,rgba(214,238,233,0) 70%),radial-gradient(900px 480px at -6% 100%,#FDEBDB 0,rgba(253,235,219,0) 70%),var(--bg);border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,110px);align-items:center}
+  .pill{display:inline-block;background:var(--brand-soft);color:var(--brand-dark);font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:20px}
+  h1{font-size:clamp(36px,5vw,68px);line-height:1.05;letter-spacing:-.025em;margin:0 0 20px;font-weight:750}
+  h1 em{font-style:normal;color:var(--brand)}
+  .lead{font-size:clamp(18px,1.5vw,22px);color:var(--muted);margin:0 0 32px;max-width:none}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .fine{font-size:14px;color:var(--muted);margin-top:16px}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px 30px 24px;box-shadow:16px 16px 0 -3px rgba(244,162,97,.22),0 30px 60px -30px rgba(15,95,92,.45)}
+  footer a.btn:hover{text-decoration:none}
+  .panel h3{margin:0 0 4px;font-size:16px}
+  .panel .sub{font-size:13px;color:var(--muted);margin:0 0 14px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .caption{font-size:12px;color:var(--muted);margin:12px 0 0;border-top:1px solid var(--line);padding-top:10px}
+
+  section{padding:clamp(64px,7vw,104px) 0}
+  .transcript{margin:8px 0 0;text-align:right;font-size:13px}.transcript a{color:#5b6b6a;text-decoration:underline;text-underline-offset:2px}.transcript a:hover{color:#0A4644}
+  .videobox{max-width:1100px;margin:22px auto 0;border-radius:26px;overflow:hidden;box-shadow:0 24px 48px -30px rgba(15,95,92,.55);background:#0A4644}.videobox video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+  section.alt{background:#F1F7F6;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 10px}
+  h2{text-wrap:balance;font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;font-weight:720}
+  .intro{font-size:clamp(17px,1.35vw,20px);color:var(--muted);max-width:none;margin:0 0 clamp(32px,4vw,52px)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,32px)}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,2vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(15,95,92,.5);border-color:#BFD8D3}
+  .card h3{margin:0 0 8px;font-size:19px;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--muted);font-size:16px}
+  .num{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:14px}
+  .icon{width:42px;height:42px;border-radius:12px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .icon svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,32px)}
+  .who.who4{grid-template-columns:repeat(4,1fr)}
+  .who .card{border-top:4px solid var(--accent)}
+
+  .privacy{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .ticks{list-style:none;padding:0;margin:0}
+  .ticks li{display:flex;gap:12px;margin-bottom:16px;font-size:17px}
+  .ticks svg{flex:none;width:22px;height:22px;margin-top:2px;stroke:var(--brand);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+  section#join{background:linear-gradient(120deg,#0A4644 0%,#0F5F5C 55%,#13706B 100%);padding:clamp(56px,6vw,88px) 0;position:relative;overflow:hidden}
+  section#join::after{content:"";position:absolute;right:-120px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(244,162,97,.35),rgba(244,162,97,0) 70%)}
+  .join{color:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,80px);align-items:center;position:relative;z-index:1}
+  .join h2{color:#fff;margin-bottom:10px}
+  .join p{margin:0;color:#D5ECEA;font-size:18px}
+  .join .btn{background:var(--accent);color:#2A1A06!important}
+  .join .btn:hover{background:#F8B67E}
+
+  footer{background:#082F2E;padding:clamp(48px,5vw,80px) 0 40px;color:#B7D2CE;font-size:14px}
+  footer a{color:#fff;text-decoration:none}footer a:hover{text-decoration:underline}
+  footer p{margin:0 0 12px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 2.2fr;gap:clamp(28px,5vw,88px);padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:26px}
+  .fbrand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:18px;margin-bottom:12px}
+  .fbrand svg{width:34px;height:34px}
+  footer h4{margin:0 0 12px;color:#fff;font-size:13px;letter-spacing:.09em;text-transform:uppercase}
+  footer ul{list-style:none;margin:0;padding:0}footer li{margin:0 0 9px}
+  .fine2{font-size:13px;color:#8FB3AE}
+  .strip{background:#0A4644;color:#fff}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,3vw,48px);padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(26px,3vw,40px)}
+  .stat b{display:block;font-size:clamp(24px,2.3vw,36px);letter-spacing:-.02em;line-height:1.1;color:#fff}
+  .stat span{color:#BFE0DB;font-size:15px}
+  .stat b i{font-style:normal;color:var(--accent)}
+
+  @media (max-width:900px){
+    .hero-grid,.privacy,.join,.fgrid{grid-template-columns:1fr}
+    .grid4,.stats{grid-template-columns:repeat(2,1fr)}
+    .nav ul li.hide-sm{display:none}
+    .hero{padding-top:44px}
+    .join{padding:38px 26px}
+  }
+  @media (max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}.grid3,.who,.who.who4{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:700px){
+    .brand{font-size:15px}.nav{height:64px}.btn.small{padding:8px 14px;font-size:13px}.panel{box-shadow:0 20px 40px -26px rgba(15,95,92,.45)}
+    .grid3,.who,.who.who4,.grid2,.grid4,.stats{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);margin-top:26px;align-items:stretch}
+  .plan{display:flex;flex-direction:column}.plan h3{margin:0 0 4px}.plan .price{font-size:34px;font-weight:800;color:var(--brand);margin:6px 0 0}.plan .price small{font-size:16px;font-weight:600;color:var(--muted)}
+  .plan .was{margin:2px 0 10px;color:var(--muted);font-size:15px}.plan ul{margin:8px 0 18px;padding-left:20px;flex:1}.plan li{margin:0 0 5px}
+  .plan.best{border:2px solid var(--brand);position:relative}.plan .tag{position:absolute;top:-13px;right:18px;background:var(--accent);color:#2A1A06;font-weight:700;font-size:13px;padding:4px 12px;border-radius:999px}
+  .plansnote{margin:18px 0 0;color:var(--muted);font-size:14.5px}
+  .planpick{border:0;margin:12px 0 0;padding:0}.planpick legend{font-weight:600;font-size:14px;padding:0;margin-bottom:6px}
+  .planpick label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #B9CBC7;border-radius:12px;padding:10px 12px;margin:0 0 8px;font-weight:500;font-size:15px;cursor:pointer}
+  .planpick input{width:20px;height:20px;margin-top:2px;flex:none}.planpick label.on{border-color:var(--brand);background:var(--brand-soft)}.planpick small{display:block;color:var(--muted);font-size:13px;margin-top:2px;font-weight:400}
+  @media (max-width:900px){.plans{grid-template-columns:1fr}}
+  .signin-note{margin:14px 0 0!important;font-size:15px!important}
+  .signin-note a{color:#fff}
+  dialog#termsdlg{border:0;border-radius:20px;padding:0;max-width:640px;width:calc(100% - 28px);box-shadow:0 24px 70px rgba(6,42,41,.35);color:var(--ink)}dialog#termsdlg::backdrop{background:rgba(6,42,41,.55)}
+  .termsbox.tall{height:min(60vh,460px)}.termslink{color:var(--brand);font-weight:600;text-decoration:underline}
+  dialog#signup,dialog#devicedlg{border:0;border-radius:20px;padding:0;max-width:560px;width:calc(100% - 28px);box-shadow:0 24px 70px rgba(6,42,41,.35);color:var(--ink)}
+  dialog#signup::backdrop,dialog#devicedlg::backdrop{background:rgba(6,42,41,.55)}
+  .dlg{padding:26px 28px 24px;max-height:92vh;overflow:auto}
+  .dlg h2{margin:0 0 6px;font-size:24px;color:var(--brand)}
+  .dlg .sub{margin:0 0 16px;color:var(--muted);font-size:15px}
+  .dlg label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+  .dlg input[type=text],.dlg input[type=email],.dlg input[type=password]{width:100%;font:inherit;font-size:17px;padding:11px 12px;border:1.5px solid #B9CBC7;border-radius:10px;background:#fff;color:var(--ink)}
+  .dlg input:focus{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--brand)}
+  .dlg .hint{font-size:13px;color:var(--muted);margin:4px 0 0}
+  .dlg .err{background:#FDECEA;color:#8C1D18;border-radius:10px;padding:10px 12px;font-size:14.5px;margin:12px 0 0}
+  .dlg .warn{background:#FFF4E0;color:#7A4A06;border-radius:10px;padding:10px 12px;font-size:14.5px;margin:8px 0 0}
+  .termsbox{height:170px;overflow:auto;border:1.5px solid #B9CBC7;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.5;background:#F7FAF9;margin:6px 0 8px}
+  .termsbox p{margin:0 0 8px}.termsbox p.sub{margin-left:16px}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-weight:500!important;font-size:14.5px!important;margin:6px 0 0!important}
+  .agree input{width:22px;height:22px;margin-top:1px;flex:none}
+  .dlg .row{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:18px;flex-wrap:wrap}
+  .dlg .btn[disabled]{opacity:.55;cursor:not-allowed}
+  .pwrow{position:relative}.pwrow button{position:absolute;right:6px;top:6px;border:0;background:transparent;color:var(--brand);font:inherit;font-weight:600;font-size:14px;padding:6px 8px;cursor:pointer}
+  .cardnote{background:var(--brand-soft);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:14px}
+  .soon{display:flex;gap:18px;align-items:flex-start;margin-top:22px;background:#fff;border:1.5px dashed var(--brand);border-radius:var(--radius);padding:22px 26px}
+  .soon h3{margin:0 0 6px;font-size:19px;letter-spacing:-.01em}
+  .soon p{margin:0;color:var(--muted);font-size:16px;max-width:none}
+  .badge{flex:none;background:var(--accent);color:#2A1A06;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:6px 12px;margin-top:2px}
+  @media (max-width:700px){.soon{flex-direction:column;gap:10px;padding:20px}}
+
+  /* V4 compact landing: smaller type, tighter spacing, hero with a small video beside the text */
+  body{font-size:15px;line-height:1.5}
+  .nav{height:60px}.brand{font-size:16px}.brand svg{width:30px;height:30px}
+  .pillrow a{padding:5px 14px;font-size:13px}.pillrow .wide{padding-top:7px;padding-bottom:7px}
+  html{scroll-padding-top:112px}
+  .hero{padding:clamp(28px,3.5vw,52px) 0 clamp(30px,3.5vw,52px)}
+  .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(24px,4vw,64px)}
+  h1{font-size:clamp(26px,3.2vw,42px);line-height:1.1;margin:0 0 12px}
+  .lead{font-size:clamp(15px,1.2vw,17px);margin:0 0 18px}
+  .btn{padding:10px 20px;font-size:15px}
+  .fine{font-size:13px;margin-top:12px}
+  .herovideo{margin:0}.herovideo .videobox{max-width:none;margin:0;border-radius:16px}
+  .herovideo .transcript{margin:6px 0 0;font-size:12px}
+  section{padding:clamp(30px,3.6vw,52px) 0}
+  h2{font-size:clamp(20px,2.3vw,28px);margin:0 0 8px}
+  .intro{font-size:clamp(14px,1.1vw,16px);margin:0 0 18px}
+  .eyebrow{font-size:12px;margin:0 0 6px}
+  .grid3{gap:14px}.grid4{gap:14px}
+  .card{padding:16px 18px}
+  .card h3{font-size:16px;margin:0 0 4px}.card p{font-size:14px}
+  .num{width:28px;height:28px;font-size:14px;margin-bottom:8px}
+  .icon{width:34px;height:34px;margin-bottom:8px}.icon svg{width:18px;height:18px}
+  .plan .price{font-size:28px}.plan .was{font-size:13px;margin:2px 0 6px}.plan ul{margin:6px 0 12px;font-size:14px}.plan li{margin:0 0 3px}
+  .plan .tag{font-size:12px;padding:3px 10px}.plansnote{font-size:13px;margin:12px 0 0}
+  .plans{margin-top:14px}
+  section#join{padding:clamp(28px,3.5vw,44px) 0}.join p{font-size:15px}
+  .join h2{font-size:clamp(19px,2.1vw,26px)}
+  footer{padding:30px 0 22px;font-size:13px}.fgrid{padding-bottom:18px;margin-bottom:16px;gap:clamp(20px,3vw,48px)}
+  .fine2{font-size:12px}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:18px}
+    .herovideo{max-width:480px}
+  }
+  @media (max-width:700px){
+    body{font-size:14px}
+    .nav{height:52px}.brand{font-size:14px}.brand svg{width:26px;height:26px}
+    .pillrow .wide{padding-top:5px;padding-bottom:5px;gap:6px}.pillrow a{padding:4px 11px;font-size:12px}
+    html{scroll-padding-top:96px}
+    .hero{padding:18px 0 20px}
+    h1{font-size:23px;margin-bottom:8px}.lead{font-size:14px;margin-bottom:12px}
+    .btn{padding:9px 16px;font-size:14px}
+    section{padding:22px 0}
+    h2{font-size:19px}.intro{font-size:13.5px;margin-bottom:12px}
+    .card{padding:12px 14px}.card h3{font-size:15px}.card p{font-size:13px}
+    .grid3,.grid4{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .card{padding:10px 11px}.card h3{font-size:14px;margin-bottom:3px}.card p{font-size:12.5px;line-height:1.4}
+    .icon,.num{display:none}
+    .plans{gap:12px}.plan .price{font-size:24px}
+    section#join{padding:22px 0}.join{padding:0 4px;gap:14px}.join p{font-size:13.5px}
+    footer .fgrid>div:nth-child(2){display:none}
+  }
+
+  /* free school fee look-up */
+  #try{background:#fff;border-bottom:1px solid var(--line)}
+  .trygrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(20px,3vw,44px);align-items:start}
+  .trybox{position:relative}
+  .trybox input[type=search]{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;background:#fff}
+  .trybox input[type=search]:focus{outline:2px solid var(--brand);outline-offset:1px}
+  .trylist{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .trylist button{display:block;width:100%;text-align:left;font:inherit;font-size:15px;padding:11px 16px;border:0;border-bottom:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+  .trylist li:last-child button{border-bottom:0}
+  .trylist button:hover,.trylist button:focus{background:#EAF4F2;outline:0}
+  .trylist small{display:block;color:var(--muted);font-size:13px}
+  #su-form.slim #su-plans{display:none}
+  .tryfine{font-size:13px;color:var(--muted);margin:10px 0 0}
+  .linkbtn{all:unset;cursor:pointer;color:var(--brand);font-weight:600;text-decoration:underline;font-size:14px}.linkbtn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .feecard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px;box-shadow:0 18px 40px -26px rgba(15,95,92,.5)}
+  .feecard h3{margin:0 0 2px;font-size:20px}
+  .feecard .where{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .feetbl{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+  .feetbl th{text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:2px solid var(--line)}
+  .feetbl th.n,.feetbl td.n{text-align:right}
+  .feetbl td{padding:9px 8px;border-bottom:1px solid var(--line)}
+  .feetbl tbody tr:nth-child(even){background:#F6FAF9}
+  .feetbl tfoot td{font-weight:700;border-bottom:0;border-top:2px solid var(--brand);background:#EAF4F2}
+  .feecard .src{font-size:13px;color:var(--muted);margin:12px 0}
+  .feeacts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .feemsg{padding:16px 18px;border-radius:14px;background:#FFF6EC;border:1px solid #F4D9B8;margin:0}
+  .feemsg .btn{margin-top:10px}
+  @media (max-width:760px){.trygrid{grid-template-columns:1fr}.feecard{padding:16px}.feetbl{font-size:14px}.feetbl td,.feetbl th{padding:7px 5px}}
+</style>
+<style>
+  html{scroll-padding-top:96px}
+  .nav{justify-content:flex-start;gap:20px}
+  .pills{display:flex;gap:8px;margin-left:10px;flex:1;min-width:0}
+  .pills a{flex:none;white-space:nowrap;padding:7px 16px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--brand);font-size:14px;font-weight:600;text-decoration:none;transition:background .15s}
+  .pills a:hover{background:var(--brand-soft);border-color:#BFD8D3}
+  .pills a[aria-current=page]{background:var(--brand);border-color:var(--brand);color:#fff}
+  .nav .navr{margin-left:auto;gap:clamp(12px,1.6vw,26px)}
+  .langs{display:flex;gap:6px}
+  .langs a{display:inline-flex;border-radius:7px;padding:3px;border:1.5px solid transparent;line-height:0}
+  .langs a[aria-current=true]{border-color:var(--brand)}
+  .langs a:hover{border-color:#BFD8D3}
+  .langs svg{width:27px;height:18px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+  .burger{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--brand);cursor:pointer;padding:0}
+  .burger svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+  .mnav{border-top:1px solid var(--line);background:#fff;padding:6px clamp(20px,4.5vw,88px) 12px}
+  .mnav[hidden]{display:none}
+  .mnav a{display:block;padding:12px 4px;font-size:17px;font-weight:600;text-decoration:none;color:var(--brand);border-bottom:1px solid var(--line)}
+  .mnav a[aria-current=page]{color:var(--ink)}
+  @media (max-width:1100px){.pills{display:none}.burger{display:inline-flex}.nav .navr{margin-left:auto}}
+  h1.pg{text-wrap:balance;font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 14px;font-weight:720}
+  @media (max-height:820px){h1.pg{font-size:clamp(20px,2.3vw,28px);margin:0 0 8px}}
+  html[lang=zh-Hans] body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif}
+  html[lang=zh-Hans] h1,html[lang=zh-Hans] h2,html[lang=zh-Hans] h3{letter-spacing:0}
+  html[lang=zh-Hans] .eyebrow{text-transform:none;letter-spacing:.06em}
+</style>
+<!-- Cloudflare Web Analytics (visit counting). The owner can switch it off in one browser by visiting /?nocount=1, and back on with /?nocount=0 -->
+<script>
+(function(){try{var q=location.search;if(/[?&]nocount=1/.test(q))localStorage.setItem('sfpNoCount','1');else if(/[?&]nocount=0/.test(q))localStorage.removeItem('sfpNoCount');if(localStorage.getItem('sfpNoCount')==='1')return}catch(e){}
+var s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "324a0b0f531246cb9094e431df58110c"}');document.head.appendChild(s)})();
+</script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<header class="top">
+  <div class="wide nav">
+    <a class="brand" href="/zh/" aria-label="Easy School Fees Planner home"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A4644"/><stop offset=".55" stop-color="#0F5F5C"/><stop offset="1" stop-color="#1B9088"/></linearGradient><linearGradient id="hSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBE08A"/><stop offset="1" stop-color="#F4B860"/></linearGradient><clipPath id="hCl"><rect width="64" height="64" rx="14"/></clipPath></defs><g clip-path="url(#hCl)"><rect width="64" height="64" fill="url(#hSky)"/><rect x="12" y="44" width="8" height="10" rx="1.5" fill="#9DD6CF"/><rect x="23" y="38" width="8" height="16" rx="1.5" fill="#C6E8E3"/><rect x="34" y="32" width="8" height="22" rx="1.5" fill="#E3F1EF"/><circle cx="50" cy="44" r="7" fill="url(#hSun)"/><text x="50" y="47.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#8A5A14">$</text><path d="M32 9 56 20 32 31 8 20z" fill="#FFFFFF"/><path d="M52 21.5v8" stroke="#F4B860" stroke-width="2.2" stroke-linecap="round"/><circle cx="52" cy="31.5" r="2.4" fill="#F4B860"/></g></svg>Easy School Fees Planner</a>
+    <nav class="pills" aria-label="Main"><a href="/zh/#try">免费试用</a><a href="/zh/how-it-works/" aria-current="page">使用方法</a><a href="/zh/pricing/">价格</a><a href="/zh/privacy/">隐私</a></nav>
+    <ul class="navr">
+      <li class="langs" role="group" aria-label="语言"><a href="/how-it-works/" hreflang="en-AU" lang="en" aria-label="English" title="English"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#00247D"/><path d="M0 0l15 10M15 0L0 10" stroke="#fff" stroke-width="2"/><path d="M0 0l15 10M15 0L0 10" stroke="#CF142B" stroke-width=".8"/><path d="M7.5 0v10M0 5h15" stroke="#fff" stroke-width="3.4"/><path d="M7.5 0v10M0 5h15" stroke="#CF142B" stroke-width="2"/><polygon points="7.50,12.20 8.26,14.15 10.35,14.27 8.74,15.60 9.26,17.63 7.50,16.50 5.74,17.63 6.26,15.60 4.65,14.27 6.74,14.15" fill="#fff"/><polygon points="22.00,2.40 22.29,3.20 23.14,3.23 22.48,3.75 22.71,4.57 22.00,4.10 21.29,4.57 21.52,3.75 20.86,3.23 21.71,3.20" fill="#fff"/><polygon points="26.00,6.80 26.29,7.60 27.14,7.63 26.48,8.15 26.71,8.97 26.00,8.50 25.29,8.97 25.52,8.15 24.86,7.63 25.71,7.60" fill="#fff"/><polygon points="22.00,14.80 22.29,15.60 23.14,15.63 22.48,16.15 22.71,16.97 22.00,16.50 21.29,16.97 21.52,16.15 20.86,15.63 21.71,15.60" fill="#fff"/><polygon points="18.00,7.80 18.29,8.60 19.14,8.63 18.48,9.15 18.71,9.97 18.00,9.50 17.29,9.97 17.52,9.15 16.86,8.63 17.71,8.60" fill="#fff"/><polygon points="24.20,10.60 24.41,11.12 24.96,11.15 24.53,11.51 24.67,12.05 24.20,11.75 23.73,12.05 23.87,11.51 23.44,11.15 23.99,11.12" fill="#fff"/></svg></a><a href="/zh/how-it-works/" hreflang="zh-Hans" lang="zh-Hans" aria-label="中文（简体）" title="中文" aria-current="true"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5.00,2.00 5.71,4.03 7.85,4.07 6.14,5.37 6.76,7.43 5.00,6.20 3.24,7.43 3.86,5.37 2.15,4.07 4.29,4.03" fill="#FFDE00"/><polygon points="10.94,1.66 10.38,2.11 10.62,2.79 10.01,2.40 9.44,2.83 9.62,2.14 9.04,1.72 9.75,1.68 9.97,1.00 10.22,1.67" fill="#FFDE00"/><polygon points="12.98,4.37 12.28,4.49 12.14,5.19 11.81,4.55 11.10,4.64 11.61,4.13 11.31,3.48 11.94,3.80 12.47,3.32 12.36,4.02" fill="#FFDE00"/><polygon points="13.00,7.20 12.32,7.44 12.31,8.15 11.88,7.58 11.19,7.79 11.60,7.20 11.19,6.61 11.88,6.82 12.31,6.25 12.32,6.96" fill="#FFDE00"/><polygon points="10.98,9.03 10.36,9.38 10.47,10.08 9.94,9.60 9.31,9.92 9.61,9.27 9.10,8.76 9.81,8.85 10.14,8.21 10.28,8.91" fill="#FFDE00"/></svg></a></li>
+      <li class="hide-sm"><a href="/app/">登录</a></li>
+      <li><a class="btn small" href="#join" data-open-signup>注册</a></li>
+      <li><button type="button" class="burger" id="burger" aria-label="菜单" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></li>
+    </ul>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="菜单" hidden><a href="/zh/">首页</a><a href="/zh/#try">免费试用</a><a href="/zh/how-it-works/" aria-current="page">使用方法</a><a href="/zh/pricing/">价格</a><a href="/zh/privacy/">隐私</a><a href="/app/">登录</a></nav>
+</header>
+
+<main id="top">
+<section id="how">
+  <div class="wrap">
+    <p class="eyebrow">使用方法</p>
+    <h1 class="pg">四步看清全局</h1>
+    <div class="grid4">
+      <div class="card"><div class="num">1</div><h3>您的家庭</h3><p>添加支付学费的收入和每个孩子的出生年份。姓名可不填。</p></div>
+      <div class="card"><div class="num">2</div><h3>您的学校</h3><p>搜索学校、查询学费并添加额外费用。比较留在原校与转校。</p></div>
+      <div class="card"><div class="num">3</div><h3>付款方式</h3><p>按学期、按月或一次付清，来源可以是收入、储蓄或家人的资助。</p></div>
+      <div class="card"><div class="num">4</div><h3>全局一览</h3><p>规划看板将学费与家庭资金并列显示。修改任一数字，立即看到影响。</p></div>
+    </div>
+  </div>
+</section>
+<section id="features" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">您能做什么</p>
+    <h2>您所需要的一切，用通俗的语言</h2>
+    <div class="grid3">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>每个孩子每年的学费</h3><p>按年级列出学费、征费和额外费用，并已计入每年的涨幅。</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M17 7.5C17 5.6 14.8 4.5 12 4.5S7 5.6 7 7.5s2.2 3 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg></div><h3>您将如何付款</h3><p>按学期、按月或一次付清，来源可以是收入、储蓄、遗产或家人的资助。</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div><h3>压力集中在哪里</h3><p>学费最高的年份一目了然，方便您提前准备。</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><h3>比较学校</h3><p>每个孩子最多可添加三所备选学校，并排比较。</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 4-9 4-9-4 9-4zM7 9.5V14c0 1.4 2.2 3 5 3s5-1.6 5-3V9.5"/></svg></div><h3>您的整体财务</h3><p>查看学费与购房如何相互配合，以及何时时机最佳。</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></div><h3>规划助手</h3><p>询问如何模拟某种情景。您的数字绝不会提供给助手。</p></div>
+    </div>
+  </div>
+</section>
+<section id="join">
+  <div class="wrap">
+    <div class="join">
+      <div>
+        <h2>明智规划，给孩子最好的起点。</h2>
+        <p>先免费试用（<strong>不收取任何费用</strong>），或直接选择方案立即开始。</p>
+      </div>
+      <div style="text-align:right">
+        <a class="btn" href="#join" data-open-signup>注册</a>
+        <p class="signin-note"><a href="/app/">已获批准？登录</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wide">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="fSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A4644"/><stop offset=".55" stop-color="#0F5F5C"/><stop offset="1" stop-color="#1B9088"/></linearGradient><linearGradient id="fSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBE08A"/><stop offset="1" stop-color="#F4B860"/></linearGradient><clipPath id="fCl"><rect width="64" height="64" rx="14"/></clipPath></defs><g clip-path="url(#fCl)"><rect width="64" height="64" fill="url(#fSky)"/><rect x="12" y="44" width="8" height="10" rx="1.5" fill="#9DD6CF"/><rect x="23" y="38" width="8" height="16" rx="1.5" fill="#C6E8E3"/><rect x="34" y="32" width="8" height="22" rx="1.5" fill="#E3F1EF"/><circle cx="50" cy="44" r="7" fill="url(#fSun)"/><text x="50" y="47.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#8A5A14">$</text><path d="M32 9 56 20 32 31 8 20z" fill="#FFFFFF"/><path d="M52 21.5v8" stroke="#F4B860" stroke-width="2.2" stroke-linecap="round"/><circle cx="52" cy="31.5" r="2.4" fill="#F4B860"/></g></svg>Easy School Fees Planner</div>
+        <p>按年规划学费。</p>
+        <p><a href="#join" data-open-signup class="btn small">注册</a></p>
+      </div>
+      <div>
+        <h4>浏览</h4>
+        <ul><li><a href="/zh/how-it-works/">使用方法</a></li><li><a href="/zh/pricing/">价格</a></li><li><a href="/zh/privacy/">隐私</a></li><li><a href="/app/">登录</a></li></ul>
+      </div>
+      <div>
+        <h4>须知</h4>
+        <p>仅为一般信息。本规划器根据您输入的内容给出估算，不构成财务、税务、信贷或法律建议，也不是贷款机构的评估。学费、利率、房价和税务规则会变化，请向持牌专业人士核实您自己的情况。</p>
+        <p>第三方名称仅作示例，并不表示存在任何关联。产品处于早期开发阶段，功能可能变化。</p>
+      </div>
+    </div>
+    <p class="fine2">&copy; <span id="yr">2026</span> ABN 30 408 209 039 以 Easy School Fees Planner 名义经营 &middot; www.easyschoolfeesplanner.com.au &middot; 保留所有权利。</p>
+  </div>
+</footer>
+
+<dialog id="devicedlg" aria-labelledby="dd-title">
+  <div class="dlg">
+    <h2 id="dd-title">Please use a tablet or larger device</h2>
+    <p class="sub">The planner works best on a tablet, laptop or desktop screen, so sign-up is not available on a phone. Please come back on a larger device to sign up and start planning.</p>
+    <div class="row"><button type="button" class="btn" id="dd-close">Close</button></div>
+  </div>
+</dialog>
+<dialog id="termsdlg" aria-labelledby="td-title">
+  <div class="dlg"><h2 id="td-title">Trial terms</h2><div class="termsbox tall" id="td-body" tabindex="0" role="region" aria-label="Terms"></div><div class="row"><button type="button" class="btn" id="td-close">Close</button></div></div>
+</dialog>
+<dialog id="signup" aria-labelledby="su-title">
+  <form class="dlg" id="su-form" novalidate autocomplete="on">
+    <h2 id="su-title">Sign up</h2>
+    <fieldset class="planpick" id="su-plans"><legend>Choose how to start</legend>
+      <label data-p="trial"><input type="radio" name="plan" value="trial" checked><span><b>Free trial</b> for <span data-trialdays>7</span> days<small>No payment. We approve each trial by email.</small></span></label>
+      <label data-p="annual"><input type="radio" name="plan" value="annual"><span><b>Annual</b> <span data-price="annual">A$129</span> a year<small>Save <span data-saving>46</span>%. Cancel any time.</small></span></label>
+      <label data-p="monthly"><input type="radio" name="plan" value="monthly"><span><b>Monthly</b> <span data-price="monthly">A$19.99</span> a month<small>Cancel any time.</small></span></label>
+    </fieldset>
+    <p class="sub" id="su-sub" data-trial="Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email. <strong>This trial is free and provides full access for <span data-trialdays>7</span> days.</strong>" data-paid="Tell us who you are, accept the subscription terms, then pay on Stripe&rsquo;s secure page. Your plan starts straight away.">Tell us who you are and confirm your details with a card. <strong>No money is taken.</strong> We approve each request by email. <strong>This trial is free and provides full access for <span data-trialdays>7</span> days.</strong></p>
+    <label for="su-name">Your name</label>
+    <input id="su-name" type="text" name="name" autocomplete="name" maxlength="100" required>
+    <label for="su-email">Email address</label>
+    <input id="su-email" type="email" name="email" autocomplete="email" maxlength="200" required>
+    <div id="su-dup" class="warn" hidden></div>
+    <label for="su-pass">Choose a password (at least 10 characters)</label>
+    <div class="pwrow"><input id="su-pass" type="password" name="password" autocomplete="new-password" minlength="10" maxlength="200" required><button type="button" id="su-show" aria-label="Show password">Show</button></div>
+    <p class="hint" id="su-hint" data-trial="You will use this email and password to sign in once your request is approved." data-paid="You will use this email and password to sign in. If you already have a trial, use the same email and the password you chose then.">You will use this email and password to sign in once your request is approved.</p>
+    <div id="su-terms-store" hidden>
+    <div id="su-trial-terms">
+    <label for="su-terms-box">Trial terms (version 2026-11-26)</label>
+    <div class="termsbox" id="su-terms-box" tabindex="0" role="region" aria-label="Trial terms"><p><b>1. Who we are and who owns what.</b> This trial is offered by ABN 30 408 209 039 trading as Easy School Fees Planner (&quot;we&quot;, &quot;us&quot;). Easy School Fees Planner, including its software, source code, calculations and methodology, design, content, and the results it produces, is our intellectual property (or licensed to us) and is protected by copyright and other laws. Nothing in this trial transfers any ownership to you.</p>
+<p><b>2. Who can have a trial.</b> Adults aged 18 or over who want to plan school fees and housing costs for their own household. You confirm the name and email address you give us are accurate and belong to you.</p>
+<p><b>3. We approve each request.</b> A trial request is not a trial until we approve it. We may decline any request, without giving a reason. Your trial starts when we approve it, not when you sign up.</p>
+<p><b>4. One trial per email.</b> Each email address is entitled to one trial, ever. Trying to get another trial with a different email address, or otherwise getting around this limit, may lead to immediate end of access.</p>
+<p><b>5. No fee, and your card.</b> The trial is free. We ask you to enter a payment card so we can confirm your details and deter misuse. Your card is saved by our payment provider, Stripe. We do not charge it for the trial, and we will not charge it unless you separately agree to buy a licence.</p>
+<p><b>6. What the trial includes.</b> A single-user licence tied to your email address, active for 7 days from approval, or until the end date we give you in our approval email, and not extended, paused or renewed unless we tell you so in writing. The planner is in early development and features may change or be removed. To keep using the software after the trial you will need a separate licence.</p>
+<p><b>7. Licence and acceptable use.</b> We grant you a personal, non-exclusive, non-transferable licence to use the software through your own login for your own household&#x27;s planning and evaluation. You must not, and must not let anyone else:</p>
+<p class="sub">(a) copy, download, save, scrape, republish or redistribute the software, its code, pages, calculations or content, other than the printed or saved results of your own use</p>
+<p class="sub">(b) decompile, reverse-engineer, disassemble or otherwise try to obtain the source code, formulas or methods</p>
+<p class="sub">(c) share your login, or let anyone else use your trial</p>
+<p class="sub">(d) use the software or what you learn from it to build, train or improve a competing product or service</p>
+<p class="sub">(e) remove or change any copyright or ownership notice.</p>
+<p><b>8. Monitoring.</b> We may record how and when your login is used.</p>
+<p><b>9. If you break these terms.</b> We may suspend or end your access at once without notice. We may also take legal action against you and anyone who acts with you, including to stop the conduct (an injunction), recover damages or an account of the profits made, and recover our legal costs, to the full extent the law allows. Copying software without permission may also infringe the Copyright Act 1968 (Cth). Nothing in this clause limits any other right or remedy we have.</p>
+<p><b>10. No support.</b> We do not provide technical support, onboarding help or guaranteed availability during the trial. It is provided for evaluation, as is.</p>
+<p><b>11. General information only, and no warranty.</b> The software and any results or projections it produces are provided &quot;as is&quot;, without warranty of any kind, express or implied. Easy School Fees Planner is a modelling tool only. It gives general information from the figures you enter and simple assumptions. It is not financial product advice, tax, credit or legal advice, and it is not a lender&#x27;s assessment of what you can borrow. Its projections are estimates, not guarantees of any outcome. Fees, interest rates, property prices, stamp duty and tax rules change; check important figures with the school, your lender or a licensed adviser.</p>
+<p><b>12. Limitation of liability.</b> To the maximum extent permitted by law, we exclude all liability for any loss or damage arising from your use of, or inability to use, the trial, including indirect or consequential loss. Nothing in these terms excludes any right or remedy that cannot lawfully be excluded under the Australian Consumer Law.</p>
+<p><b>13. Your information.</b> We keep your name, email address, a scrambled (hashed) form of your password, and the details of your trial request. Your card details are held by Stripe, not by us. The figures you enter into the planner are saved on your own device and are not sent to us. Please do not enter your children&#x27;s names. If we add saving to our servers, we will tell you first and ask for your agreement. We use your details to run and review the trial, to prevent misuse, and to contact you about a licence.</p>
+<p><b>14. Governing law.</b> These terms are governed by the laws of Victoria, Australia, and you submit to the non-exclusive jurisdiction of its courts.</p></div>
+    </div>
+    <div id="su-sub-terms" hidden>
+    <label for="su-subterms-box">Subscription terms (version 2026-11-26)</label>
+    <div class="termsbox" id="su-subterms-box" tabindex="0" role="region" aria-label="Subscription terms"><p><b>1. Who we are and who owns what.</b> These terms apply to a paid plan for Easy School Fees Planner, offered by ABN 30 408 209 039 trading as Easy School Fees Planner (&quot;we&quot;, &quot;us&quot;). The software, including its code, calculations and content, is our copyright.</p>
+<p><b>2. Who can subscribe.</b> Adults aged 18 or over who want to plan school fees and housing costs for their own household. One licence is held per email address, for you and your own household. You confirm the name and email address you give us are accurate and belong to you.</p>
+<p><b>3. Plans and price.</b> Monthly or annual, at the price shown on this page and on Stripe&rsquo;s payment page, in Australian dollars. Prices include GST where it applies. We may change the price for future renewals by emailing you at least 30 days beforehand.</p>
+<p><b>4. Payment and renewal.</b> Your card is charged when you subscribe and then at the start of each period, automatically, until you cancel. Payments are handled by our payment provider, Stripe, and we never see your card number. If a payment fails, Stripe will try again, and your access may stop if it cannot be collected.</p>
+<p><b>5. Cancelling.</b> You can cancel at any time using Manage subscription on the About page in the planner. You keep access until the end of the period you have paid for, and are not charged again.</p>
+<p><b>6. Refunds.</b> If the planner is not right for you, email us within 14 days of your first payment and we will refund that payment in full. Otherwise payments are not refundable, except where Australian law requires it. Nothing here limits your rights under the Australian Consumer Law.</p>
+<p><b>7. What is included.</b> All the features of the planner. The Planner Assistant and the school fee look-up have monthly fair-use limits (currently 60 questions and 15 fee look-ups a month) to keep the service sustainable. The planner may change over time, and we aim to keep its core planning features available.</p>
+<p><b>8. Licence and acceptable use.</b> We grant you a personal, non-exclusive, non-transferable licence to use the software through your own login for your own household&#x27;s planning. You must not, and must not let anyone else: copy, download, scrape, republish or redistribute the software, its code, pages, calculations or content (other than the printed or saved results of your own use); decompile, reverse-engineer or try to obtain the source code, formulas or methods; share your login; use the software to build or improve a competing product; or remove any copyright or ownership notice.</p>
+<p><b>9. Monitoring and breaches.</b> We may record how and when your login is used. If you break these terms we may suspend or end your access at once without notice, and may take legal action to stop the conduct and recover our losses and costs, to the full extent the law allows.</p>
+<p><b>10. General information only, and no warranty.</b> Easy School Fees Planner is a modelling tool. It gives general information from the figures you enter and simple assumptions. It is not financial, tax, credit or legal advice, and not a lender&#x27;s assessment of what you can borrow. Rates, duty, grants and rules change, so check the official sources before you act. Results are provided as is, without warranty, except those that cannot lawfully be excluded.</p>
+<p><b>11. Limitation of liability.</b> To the maximum extent permitted by law, we exclude all liability for loss or damage arising from your use of, or inability to use, the planner, including indirect or consequential loss. Nothing in these terms excludes any right or remedy that cannot lawfully be excluded under the Australian Consumer Law.</p>
+<p><b>12. Your information.</b> We keep your name, email address, a scrambled (hashed) form of your password, your plan and its dates. Your card details are held by Stripe, not by us. The figures you enter into the planner are saved on your own device and are not sent to us, unless you choose cloud saving: then your plan is encrypted in your browser with your passphrase, and we cannot read it. Questions you type to the Planner Assistant are sent to an AI service without any of your plan figures, and are not saved.</p>
+<p><b>13. Governing law.</b> These terms are governed by the laws of Victoria, Australia, and you submit to the non-exclusive jurisdiction of its courts.</p></div>
+    </div>
+    </div>
+    <label class="agree"><input type="checkbox" id="su-agree"><span id="su-agree-text" data-trial="I am 18 or over and I accept the &lt;a href=&quot;#terms&quot; class=&quot;termslink&quot;&gt;trial terms&lt;/a&gt;." data-paid="I am 18 or over and I accept the &lt;a href=&quot;#terms&quot; class=&quot;termslink&quot;&gt;subscription terms&lt;/a&gt;.">I am 18 or over and I accept the <a href="#terms" class="termslink">trial terms</a>.</span></label>
+    <div class="cardnote" id="su-cardnote" data-trial="Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and &lt;strong&gt;$0 is charged&lt;/strong&gt;. We never see your card number." data-paid="Next you will pay on Stripe&rsquo;s secure page. Your card is charged now and again each period until you cancel, which you can do at any time. We never see your card number.">Next you will enter a card on Stripe&rsquo;s secure page. It is saved to confirm your details only and <strong>$0 is charged</strong>. We never see your card number.</div>
+    <div id="su-err" class="err" role="alert" hidden></div>
+    <div class="row"><button type="button" class="btn ghost" id="su-cancel">Cancel</button><button type="submit" class="btn" id="su-go">Continue</button></div>
+  </form>
+</dialog>
+<script>
+(function(){
+  var WORKER='https://purple-mountain-ecf7.guy-h-hinton.workers.dev'.replace(/\/+$/,'');   // the deployed Worker address: no slash on the end
+  var TRIAL_TERMS_VERSION='2026-11-26';                    // must equal TRIAL_TERMS_VERSION in the Worker
+  var SUB_TERMS_VERSION='2026-11-26';                      // must equal SUB_TERMS_VERSION in the Worker
+  var $=function(i){return document.getElementById(i)}, dlg=$('signup'), form=$('su-form');
+  function show(id,msg){var e=$(id); e.textContent=msg||''; e.hidden=!msg}
+  function isPhone(){return window.matchMedia('(max-width:600px)').matches||Math.min(screen.width,screen.height)<600}
+  var dd=$('devicedlg'); $('dd-close').addEventListener('click',function(){dd.close?dd.close():dd.removeAttribute('open')});
+  var plan='trial';
+  function goLabel(){return plan==='trial'?'Continue':'Continue to payment'}
+  function setPlan(p){
+    plan=(p==='monthly'||p==='annual')?p:'trial'; var paid=plan!=='trial';
+    [].forEach.call(form.querySelectorAll('input[name=plan]'),function(r){r.checked=(r.value===plan);r.parentNode.className=r.checked?'on':''});
+    $('su-trial-terms').hidden=paid; $('su-sub-terms').hidden=!paid;
+    ['su-sub','su-hint','su-agree-text','su-cardnote'].forEach(function(id){var el=$(id); el.innerHTML=el.getAttribute(paid?'data-paid':'data-trial')});
+    $('su-go').textContent=goLabel(); if(paid) show('su-dup','');
+  }
+  var td=$('termsdlg');
+  function openTerms(){ var paid=plan!=='trial', box=$(paid?'su-subterms-box':'su-terms-box'), lab=box.parentNode.querySelector('label'); $('td-title').textContent=lab?lab.textContent:'Terms'; $('td-body').innerHTML=box.innerHTML; $('td-body').scrollTop=0; if(td.showModal){td.showModal()}else{td.setAttribute('open','')} }
+  $('td-close').addEventListener('click',function(){td.close?td.close():td.removeAttribute('open')});
+  form.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('.termslink'); if(a){e.preventDefault(); openTerms()}});
+  form.addEventListener('change',function(e){if(e.target&&e.target.name==='plan')setPlan(e.target.value)});
+  function open(ev,p,slim){ if(ev&&ev.preventDefault) ev.preventDefault(); if(!slim){ var o=$('su-addnote'); if(o&&o.parentNode) o.parentNode.removeChild(o) } form.className=(form.className||'').replace(/\bslim\b/g,'').trim()+(slim?' slim':''); var want=p||(ev&&ev.currentTarget&&ev.currentTarget.getAttribute&&ev.currentTarget.getAttribute('data-plan'))||'trial'; if(isPhone()){ if(dd.showModal){dd.showModal()}else{dd.setAttribute('open','')} return } setPlan(want); show('su-err',''); show('su-dup',''); if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')} }   // showModal() focuses the first field itself; a delayed focus() here could steal focus from what the person is typing in
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open-signup]'),function(a){a.addEventListener('click',open)});
+  window.sfpOpenSlim=function(){ open(null,'trial',true) };   // from the school look-up: only the free access sign-up, with no plan choice or prices
+  $('su-cancel').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
+  $('su-show').addEventListener('click',function(){var p=$('su-pass'),s=p.type==='password';p.type=s?'text':'password';this.textContent=s?'Hide':'Show'});
+  function post(path,body){return fetch(WORKER+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json().catch(function(){return {}}).then(function(j){j._status=r.status;return j})})}
+  var dupFound=false;
+  $('su-email').addEventListener('blur',function(){
+    var e=this.value.trim(); if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)){show('su-dup','');dupFound=false;return}
+    post('/check-trial-email',{email:e}).then(function(j){ dupFound=!!(j&&j.exists); show('su-dup',dupFound?j.message:'') }).catch(function(){})
+  });
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault(); show('su-err','');
+    var name=$('su-name').value.trim(), email=$('su-email').value.trim(), pass=$('su-pass').value;
+    if(!name) return show('su-err','Please enter your name.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return show('su-err','Please enter a valid email address.');
+    if(pass.length<10) return show('su-err','Please choose a password of at least 10 characters.');
+    var paid=plan!=='trial';
+    if(!$('su-agree').checked) return show('su-err','Please tick the box to accept the '+(paid?'subscription':'trial')+' terms.');
+    var go=$('su-go'); go.disabled=true; go.textContent='One moment...';
+    var req=paid?post('/create-subscription-session',{plan:plan,name:name,email:email,password:pass,subTermsAccepted:true,subTermsVersion:SUB_TERMS_VERSION,successUrl:location.origin+'/app/',cancelUrl:location.origin+'/#plans'})
+      :post('/create-trial-session',{name:name,email:email,password:pass,trialTermsAccepted:true,trialTermsVersion:TRIAL_TERMS_VERSION,successUrl:location.origin+'/app/',cancelUrl:location.origin+'/#join'});
+    req.then(function(j){
+      if(j&&j.url){ location.href=j.url; return }
+      go.disabled=false; go.textContent=goLabel();
+      show('su-err',(j&&j.error)||'Something went wrong. Please try again.');
+    }).catch(function(){ go.disabled=false; go.textContent=goLabel(); show('su-err','We could not reach the sign-up service. Please check your connection and try again.') });
+  });
+  if(location.hash==='#join' && /[?&]cancelled/.test(location.search)) open();
+  var qp=/[?&]subscribe=(monthly|annual)/.exec(location.search); if(qp) open(null,qp[1]);   // the planner's trial banner links here
+  // Show the prices the Worker will actually charge (the page text is only the fallback).
+  function money(c){return 'A$'+(c%100===0?(c/100):(c/100).toFixed(2))}
+  fetch(WORKER+'/plans').then(function(r){return r.json()}).then(function(j){
+    if(!j||!j.ok)return; var fill=function(sel,t){[].forEach.call(document.querySelectorAll(sel),function(e){e.textContent=t})};
+    fill('[data-price=monthly]',money(j.monthly.cents)); fill('[data-price=annual]',money(j.annual.cents)); fill('[data-saving]',String(j.annual.savingPct)); fill('[data-permonth]',money(Math.round(j.annual.cents/12))); fill('[data-trialdays]',String(j.trialDays));
+  }).catch(function(){});
+})();
+</script>
+<script>(function(){var b=document.getElementById('burger'),m=document.getElementById('mnav');if(!b||!m)return;function set(o){m.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false')}
+b.addEventListener('click',function(){set(m.hidden)});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){set(false);b.focus()}});
+m.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))set(false)});window.addEventListener('resize',function(){if(window.innerWidth>1100)set(false)})})();</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+</body>
+</html>
